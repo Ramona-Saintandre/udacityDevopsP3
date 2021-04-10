@@ -81,7 +81,11 @@ Login to the Service Principal using the following command with you credentials 
 
 #### Postman
 
-[Install Postman](https://www.postman.com/downloads/). With the starter files I was able to test the dummy API locally with different environment variables and then export the results as a collection to my project directory. Once the collection files have been pushed to GitHub you will need to create a script to run a Data Validation and Regression test in the Pipeline and create a report of the results. The command line Collection Runner [Newman](https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/#:~:text=Newman%20is%20a%20command%20line,integration%20servers%20and%20build%20systems.) was used to perform these tests. The following script was used:
+[Install Postman](https://www.postman.com/downloads/). 
+With the starter files I was able to test the dummy API locally with different environment variables and then export the results as a collection to my project directory.   
+Once the collection files have been pushed to GitHub you will need to create a script to run a Data Validation and Regression test in the Pipeline and create a report of the results.   
+The command line Collection Runner [Newman](https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/#:~:text=Newman%20is%20a%20command%20line,integration%20servers%20and%20build%20systems.) was used to perform these tests.   
+The following script was used:
 
 ```
     sudo npm install -g newman reporter
@@ -102,7 +106,10 @@ Be sure to publish the results of this script in JUnit format to an xml file to 
 
 #### Selenium
 
-The project requires that Selenium is installed on the VM to test the UI functionality of `https://www.saucedemo.com/` website. The test suite should show which user logged in, what items were added to the shopping cart, and what items were removed from the shopping cart. I created the python code locally and made sure the test was working before ingesting it into the Pipeline. To this:
+The project requires that Selenium is installed on the VM to test the UI functionality of `https://www.saucedemo.com/` website.   
+The test suite should show which user logged in, what items were added to the shopping cart, and what items were removed from the shopping cart.   
+I created the python code locally and made sure the test was working before ingesting it into the Pipeline.   
+To this:
 
 1. [Download the latest Chrome driver](https://sites.google.com/a/chromium.org/chromedriver/). Make sure chromedriver is added to PATH.
 2. Run
@@ -112,12 +119,21 @@ The project requires that Selenium is installed on the VM to test the UI functio
 
 #### JMeter
 
-Two tests suites were created using the Starter API files. (Stress Test and Endurance Test) You will need to replace the APPSERVICEURL with the Url of your AppService once it's deployed. In the Pipeline scripts were created to install JMeter and run the Stress and Endurance Tests. For the Pipeline two users were used for the tests so the free-tier resources wouldn't be maxed out. Before submission the tests will need to be ran simulating 30 users for a max duration of 60 seconds. The data output from these tests will need to generate an HTML report.
-**Note:** This may also be done non-CI/CD by [Installing JMeter](https://jmeter.apache.org/download_jmeter.cgi) and running the tests.
+Two tests suites were created using the Starter API files.  
+ (Stress Test and Endurance Test) You will need to replace the `APPSERVICEURL` with the Url of your AppService once it's deployed.  
 
+  In the Pipeline scripts were created to install JMeter and run the Stress and Endurance Tests.  
+
+   For the Pipeline two users were used for the tests so the free-tier resources wouldn't be maxed out.  
+
+    Before submission the tests will need to be ran simulating 30 users for a max duration of 60 seconds.  
+      
+     The data output from these tests will need to generate an HTML report.  
+**Note:** This may also be done non-CI/CD by [Installing JMeter](https://jmeter.apache.org/download_jmeter.cgi) and running the tests.
 **Note:** This may also be done non-CI/CD.
 #### Setup Log Analytics
-A Log Analytics Workspace will need to be created to ingest the Selenium Log output file. [This Resource](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-custom-logs) could be helpful in setting up Log Analytics.
+A Log Analytics Workspace will need to be created to ingest the Selenium Log output file.  
+ [This Resource](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-custom-logs) could be helpful in setting up Log Analytics.
 
 Go to the app service > Diagnostic Settings > + Add Diagnostic Setting. Click AppServiceHTTPLogs and Send to Log Analytics Workspace. Select a workspace (can be an existing default workspace) > Save. Go back to the app service > App Service Logs. Turn on Detailed Error Messages and Failed Request Tracing > Save. Restart the app service.
 
