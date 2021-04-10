@@ -1,12 +1,14 @@
 
 
-# Azure-Devops-Project3: Ensuring Quality Releases
-
-### Visit App Service Website (Until Resources Removed)   [Click Here!]
+# Udacity-Azure-Devops-P3: Ensuring Quality Releases
 
 ## Project Overview
 
-In this project, I will demonstrate the skills learned about ensuring quality releases in the Udacity Nanodegree: DevOps Engineer for Microsoft Azure. Using Microsoft Azure, I will create a VM using Terraform and deploy an app to Azure AppService. I will then test environments and run automated tests. I will also utilize monitoring tools to provide insight into my application's behavior by querying custom log files.
+In this project, I will demonstrate the skills learned about ensuring quality releases in the [**Udacity Nanodegree: DevOps Engineer for Microsoft Azure**](https://www.udacity.com/course/cloud-devops-using-microsoft-azure-nanodegree--nd082). Using Microsoft Azure.
+
+ In this project I will create a VM using Terraform, along with Packer to deploy an app to Azure AppService.  
+  Then, I will  test environments and run automated tests, using various tools such as Jmeter, Selenium, and Postman.   
+   To finalize this project I will utilize [**Azure Log Analytics**](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview) to provide insight into my application's behavior by querying custom log files.
 
 ### Dependencies
 
@@ -127,7 +129,7 @@ Two tests suites were created using the Starter API files.
    For the Pipeline two users were used for the tests so the free-tier resources wouldn't be maxed out.  
 
     Before submission the tests will need to be ran simulating 30 users for a max duration of 60 seconds.  
-      
+
      The data output from these tests will need to generate an HTML report.  
 **Note:** This may also be done non-CI/CD by [Installing JMeter](https://jmeter.apache.org/download_jmeter.cgi) and running the tests.
 **Note:** This may also be done non-CI/CD.
