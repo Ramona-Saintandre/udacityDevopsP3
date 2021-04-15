@@ -25,13 +25,20 @@ In this project, I will demonstrate the skills learned about ensuring quality re
 
 #### Installation & Configuration
 
-Configure the storage account and state backend. Replace the values below in terraform/environments/test/main.tf files with the output from the Azure CLI:
+Configure the storage account and state backend. 
+
+You will need to create a Storage Account, before you can us Azure Storage as a backend.
+
+You can also use the commands in the ```bashstoragescript.sh``` file in the repo to this.    
+[Click Here](https://docs.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage) for instructions on creating the Azure storage account and backend.  
+
+Replace the values below in terraform/environments/test/main.tf files with the output from the Azure CLI:
 
     * storage_account_name
     * container_name
     * key
-    * access_key
-[Click Here](https://docs.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage) for instructions on creating the Azure storage account and backend. You may also use the commands in the ```bashstoragescript.sh``` file in the repo to this.
+    * access_key  
+ 
 
 Create a Service Principal for Terraform and replace the below values in the terraform/environments/test/terraform.tfvars files with the output from the Azure CLI.
 
