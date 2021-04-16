@@ -167,3 +167,7 @@ The project also calls for creating an alert rule with an HTTP 404 condition. It
 In Azure Portal go to the AppService > Alerts > New Alert Rule. Add the HTTP 404 condition with a threshold value of 1. This creates an alert once there are at least 2 404 errors. Click **Done**. Now create the action group with the notification type set to **Email/SMS message/Push/Voice** choosing the email option. Give it a name and severity level.
 
 ![Email Alert]
+
+## Enchancements 
+
+One of the enchancements that I would like to do with this project, is to recreate it using [Azure Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/bicep-tutorial-create-first-bicep?tabs=azure-powershell). 
