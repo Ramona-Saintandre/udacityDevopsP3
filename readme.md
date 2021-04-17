@@ -12,19 +12,25 @@ In this project, I will demonstrate the skills learned about ensuring quality re
    To finalize this project I will utilize [**Azure Log Analytics**](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview) to provide insight into my application's behavior by querying custom log files.
 
 ### Dependencies
-
-* Python
-* Terraform
-* JMeter
-* Postman
-* Selenium
-* Azure DevOps
-* Azure CLI
-* Azure Log Analytics
+| Dependency | Link |  
+| ------ | ------ |
+ | **Python** | https://www.python.org/downloads/ |
+ | **Terraform** | https://www.terraform.io/downloads.html |
+ | **Packer** | https://www.packer.io/ |
+ | **JMeter** |  https://jmeter.apache.org/download_jmeter.cgi|
+ | **Postman** | https://www.postman.com/downloads/ |
+ | **Selenium** | https://sites.google.com/a/chromium.org/chromedriver/getting-started |
+ **Azure DevOps**
+ **Azure CLI**
+ **Azure Log Analytics**
 
 ### Project Steps
+1. This is the starter repo for the project.
 
-#### Installation & Configuration
+```sh
+git clone https://github.com/jfcb853/Udacity-DevOps-Azure-Project-3
+```
+#### 1. Installation & Configuration
 
 Configure the storage account and state backend. 
 
@@ -59,7 +65,7 @@ Login to the Service Principal using the following command with you credentials 
     **`az login --service-principal --username APP_ID --tenant TENANT_ID --password CLIENT_SECRET`**
 
 [Click Here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) if you need help with the steps for creating a service principal.
-#### Azure DevOps
+#### 2. Azure DevOps
 
 1. Create a new Azure Pipeline from the **`azure-pipelines.yaml`** file or start building one from scratch if you prefer.
 
@@ -87,7 +93,7 @@ Login to the Service Principal using the following command with you credentials 
 
 ![Fake Rest Deploy]
 
-## Running Tests in Pipeline
+## 3. Running Tests in Pipeline
 
 ## Postman
 Test Type | Technology | Stage in CI/CD pipeline | Status
@@ -165,7 +171,7 @@ Two tests suites were created using the Starter API files.
      The data output from these tests will need to generate an HTML report.  
 **Note:** This may also be done non-CI/CD by [Installing JMeter](https://jmeter.apache.org/download_jmeter.cgi) and running the tests.
 **Note:** This may also be done non-CI/CD.
-#### Setup Log Analytics
+#### 4. Setup Log Analytics
 
 Goal | Status
 :--- | :---:  
@@ -178,7 +184,7 @@ Go to the app service > Diagnostic Settings > + Add Diagnostic Setting. Click Ap
 
 Return to the Log Analytics Workspace > Logs and run a query such as `Perf`to see some log results and check that Log Analytics is working properly.
 
-#### Setup Custom Logging
+#### 5. Setup Custom Logging
 In Log Analytics Workspace go to Advanced Settings > Data > Custom Logs > Add + > Choose File. Select the seleniumlog.txt file created from the Pipeline run. (I downloaded a copy to my local machine and uploaded a copy to the Azure VM via SSH) > Next > Next. Enter the paths for the Linux machine where the file is located, such as:
 *    ` /seleniumlog.txt`
 *   ` <your path>/seleniumlog.txt`
@@ -191,7 +197,11 @@ Return to the Log Analytics Workspace > logs. Under Queries you can enter the na
 
 **Note:** This may also be done non-CI/CD.
 
-#### Setup Email Alerts
+#### 6. Setup Email Alerts
+Goal | Status
+:--- | :---:  
+Configure an Action Group (email) | :white_check_mark:  
+
 The project also calls for creating an alert rule with an HTTP 404 condition. It also requires an action group to be created with Email notification. After the alert takes effect, visit the URL of the AppService and try to cause 404 errors by visiting non-existent pages. After the 2nd 404 error an email alert should be triggered. To set this up:
 
 In Azure Portal go to the AppService > Alerts > New Alert Rule. Add the HTTP 404 condition with a threshold value of 1. This creates an alert once there are at least 2 404 errors. Click **Done**. Now create the action group with the notification type set to **Email/SMS message/Push/Voice** choosing the email option. Give it a name and severity level.

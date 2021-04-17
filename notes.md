@@ -8,3 +8,6 @@
 ## Postman
 
 ## Jmeter
+
+
+az ad sp create-for-rbac --name UdacityP3 --query "{client_id: appId, client_secret: password, tenant_id: tenant}"
