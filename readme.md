@@ -89,7 +89,14 @@ Login to the Service Principal using the following command with you credentials 
 
 ## Running Tests in Pipeline
 
-#### Postman
+## Postman
+Test Type | Technology | Stage in CI/CD pipeline | Status
+:--- | :--- | :--- | :---:  
+Integration | Postman | Test Stage - runs in Microsoft-hosted VM | :white_check_mark:  
+
+Goal | Status  
+:--- | :---:  
+Verify dummy API's can pass by running them through Newman| :white_check_mark:
 
 [Install Postman](https://www.postman.com/downloads/). 
 With the starter files I was able to test the dummy API locally with different environment variables and then export the results as a collection to my project directory.   
@@ -115,6 +122,10 @@ Be sure to publish the results of this script in JUnit format to an xml file to 
 **Note**: The dummy API provided in the starter code is buggy. While the tests pass locally, in the Pipeline most times a `429` error is present indicating `too many requests `have been made.
 
 #### Selenium
+Test Type | Technology | Stage in CI/CD pipeline | Status
+:--- | :--- | :--- | :---:    
+Functional | Selenium | Test Stage - runs in custom linux VM | :white_check_mark:  
+
 Goal | Status  
 :--- | :---:  
 Direct the output of the Selenium Test Suite to a log file, and execute the Test Suite. | :white_check_mark:  
@@ -131,6 +142,11 @@ To this:
 4. A script will need to be created to perform these tasks in the CLI in the Azure Pipelines  at this point. Make sure the script includes logging the items being added and removed from the cart that can be sent to an output file.
 
 #### JMeter
+
+Test Type | Technology | Stage in CI/CD pipeline | Status
+:--- | :--- | :--- | :---:
+Performance | JMeter | Test Stage - runs against the AppService| :white_check_mark:    
+
 Goal | Status
 :--- | :---:  
 Stress Test |
