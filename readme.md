@@ -1,4 +1,5 @@
-
+> [!IMPORTANT]
+> Need build status before submission
 
 # Udacity-Azure-Devops-P3: Ensuring Quality Releases
 
@@ -109,11 +110,14 @@ Be sure to publish the results of this script in JUnit format to an xml file to 
 
 ![Newman Data Validation]
 
-![Newman Data Validation]
+
 
 **Note**: The dummy API provided in the starter code is buggy. While the tests pass locally, in the Pipeline most times a `429` error is present indicating `too many requests `have been made.
 
 #### Selenium
+Goal | Status  
+:--- | :---:  
+Direct the output of the Selenium Test Suite to a log file, and execute the Test Suite. | :white_check_mark:  
 
 The project requires that Selenium is installed on the VM to test the UI functionality of `https://www.saucedemo.com/` website.   
 The test suite should show which user logged in, what items were added to the shopping cart, and what items were removed from the shopping cart.   
@@ -127,6 +131,11 @@ To this:
 4. A script will need to be created to perform these tasks in the CLI in the Azure Pipelines  at this point. Make sure the script includes logging the items being added and removed from the cart that can be sent to an output file.
 
 #### JMeter
+Goal | Status
+:--- | :---:  
+Stress Test |
+Endurance Test |
+
 
 Two tests suites were created using the Starter API files.  
  (Stress Test and Endurance Test) You will need to replace the `APPSERVICEURL` with the Url of your AppService once it's deployed.  
@@ -141,6 +150,11 @@ Two tests suites were created using the Starter API files.
 **Note:** This may also be done non-CI/CD by [Installing JMeter](https://jmeter.apache.org/download_jmeter.cgi) and running the tests.
 **Note:** This may also be done non-CI/CD.
 #### Setup Log Analytics
+
+Goal | Status
+:--- | :---:  
+Configure custom logging in Azure Monitor to ingest this log file. This may be done non-CI/CD. | :check_mark:  
+
 A Log Analytics Workspace will need to be created to ingest the Selenium Log output file.  
  [This Resource](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-custom-logs) could be helpful in setting up Log Analytics.
 
