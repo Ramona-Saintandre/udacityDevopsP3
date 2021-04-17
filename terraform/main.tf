@@ -44,6 +44,7 @@ module "appservice" {
   application_type = "${var.application_type}"
   resource_type    = "AppService"
   resource_group   = "${module.resource_group.resource_group_name}"
+  tags             = "${local.tags}"
 }
 module "publicip" {
   source           = "../../modules/publicip"
