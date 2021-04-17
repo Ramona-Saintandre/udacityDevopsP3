@@ -19,3 +19,6 @@ variable address_space {}
 variable "tags" {
     type = "map"
   }
+
+# VM
+variable "admin_username" {}
