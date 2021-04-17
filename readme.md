@@ -21,7 +21,7 @@ In this project, I will demonstrate the skills learned about ensuring quality re
  | **Postman** | https://www.postman.com/downloads/ |
  | **Selenium** | https://sites.google.com/a/chromium.org/chromedriver/getting-started |
  **Azure DevOps**
- **Azure CLI**
+ **Azure CLI**  | https://aka.ms/cli_ref |
  **Azure Log Analytics**
 
 ### Project Steps
