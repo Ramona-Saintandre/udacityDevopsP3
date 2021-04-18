@@ -98,7 +98,7 @@ Login to the Service Principal using the following command with you credentials 
 ## Postman
 Test Type | Technology | Stage in CI/CD pipeline | Status
 :--- | :--- | :--- | :---:  
-Integration | Postman | Test Stage - runs in Microsoft-hosted VM | :white_check_mark:  
+Integration | Postman | Test Stage - runs during build stage  | :white_check_mark:  
 
 Goal | Status  
 :--- | :---:  

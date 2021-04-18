@@ -11,3 +11,21 @@
 
 
 az ad sp create-for-rbac --name UdacityP3 --query "{client_id: appId, client_secret: password, tenant_id: tenant}"
+
+## login information 4/18/2021
+{
+    "cloudName": "AzureCloud",
+    "homeTenantId": "38e23809-f428-4d08-9f4e-b3b8b2df585c",
+    "id": "1d53902c-4bc6-44c8-82da-d1a59f04c098",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "Udacity Devops",
+    "state": "Enabled",
+    "tenantId": "38e23809-f428-4d08-9f4e-b3b8b2df585c",
+    "user": {
+      "name": "thenewmona@gmail.com",
+      "type": "user"
+    }
+  }
+]
+PS E:\udacityDevopsP3>
