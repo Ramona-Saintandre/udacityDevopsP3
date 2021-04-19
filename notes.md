@@ -30,6 +30,9 @@ az ad sp create-for-rbac --name UdacityP3 --query "{client_id: appId, client_sec
 ]
 PS E:\udacityDevopsP3>
 
+
+## Storage account resources   
+[Upload a file to Azure Storage Account using Terraform.](https://www.youtube.com/watch?v=zrVFl2Yfuxs)
 ## Service principal 
 
 PS E:\udacityDevopsP3> az ad sp create-for-rbac --role="Contributor" --name="UdacityP3" --scopes="/subscriptions/1d53902c-4bc6-44c8-82da-d1a59f04c098"
