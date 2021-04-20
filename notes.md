@@ -47,3 +47,7 @@ The output includes credentials that you must protect. Be sure that you do not i
   "name": "http://UdacityP3",
   "password": "jFSAwvD4ZY_SN.hHtb3kIVpAhfKYiTlKn-",
   "tenant": "38e23809-f428-4d08-9f4e-b3b8b2df585c"
+
+  [Using the Azure CLI to Create Azure DevOps Pipelines](https://www.youtube.com/watch?v=jz-1RUNy1Rg)
+  [Using Terraform in Azure DevOps Pipelines PART 1](https://www.youtube.com/watch?v=kqwzqWcSCYM&list=PL5uEazNEXQMIE3wgtVw5uICq2rxRe8VI9)
+  [Using Terraform in Azure DevOps Pipelines PART 2](https://www.youtube.com/watch?v=x631jUw1J04)
