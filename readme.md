@@ -20,7 +20,7 @@ In this project, I will demonstrate the skills learned about ensuring quality re
  | **JMeter** |  https://jmeter.apache.org/download_jmeter.cgi|
  | **Postman** | https://www.postman.com/downloads/ |
  | **Selenium** | https://sites.google.com/a/chromium.org/chromedriver/getting-started |
- **Azure DevOps**
+ **Azure DevOps** | need to put link to DevOPs here once created
  **Azure CLI**  | https://aka.ms/cli_ref |
  **Azure Log Analytics**
 
