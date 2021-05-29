@@ -118,3 +118,8 @@ dmypy.json
 /.notes.md
 ./notes.md
 notes.md 
+
+##ssh key 
+.pub 
+/.pub 
+y.pub 
