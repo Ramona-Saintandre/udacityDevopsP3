@@ -123,3 +123,15 @@ notes.md
 .pub 
 /.pub 
 y.pub 
+
+# Pyre type checker
+.pyre/
+
+.terraform
+.terraform.lock.hcl
+.tfstate
+.tfstate.backup
+terraform.tfvars
+
+
+chromedriver.exe

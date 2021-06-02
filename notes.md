@@ -53,6 +53,23 @@ The output includes credentials that you must protect. Be sure that you do not i
   "tenant_id": "38e23809-f428-4d08-9f4e-b3b8b2df585c"
 }
 
+6/1 
+E:\udacityDevopsP3>az account show
+{
+  "environmentName": "AzureCloud",
+  "homeTenantId": "38e23809-f428-4d08-9f4e-b3b8b2df585c",
+  "id": "1d53902c-4bc6-44c8-82da-d1a59f04c098",
+  "isDefault": true,
+  "managedByTenants": [],
+  "name": "Udacity Devops",
+  "state": "Enabled",
+  "tenantId": "38e23809-f428-4d08-9f4e-b3b8b2df585c",
+  "user": {
+    "name": "thenewmona@gmail.com",
+    "type": "user"
+  }
+}
+
   [Using the Azure CLI to Create Azure DevOps Pipelines](https://www.youtube.com/watch?v=jz-1RUNy1Rg)
   [Using Terraform in Azure DevOps Pipelines PART 1](https://www.youtube.com/watch?v=kqwzqWcSCYM&list=PL5uEazNEXQMIE3wgtVw5uICq2rxRe8VI9)
   [Using Terraform in Azure DevOps Pipelines PART 2](https://www.youtube.com/watch?v=x631jUw1J04)
