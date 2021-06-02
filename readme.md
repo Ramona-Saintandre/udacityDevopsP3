@@ -31,7 +31,15 @@ In this project, I will demonstrate the skills learned about ensuring quality re
 git clone https://github.com/jfcb853/Udacity-DevOps-Azure-Project-3
 ```
 #### 1. Installation & Configuration
+Login to Azure:<br>
+**`az login`**
 
+Create the password based authentication service principal for your project and query it for your ID and SECRET data: <br>
+    **`az ad sp create-for-rbac --name SPProject3 --query "{client_id: appId, client_secret: password, tenant_id: tenant}"`**<br>
+Make note of the password because it can't be retrieved, only reset.
+
+Login to the Service Principal using the following command with you credentials from the previous step: <br>
+    **`az login --service-principal --username APP_ID --tenant TENANT_ID --password CLIENT_SECRET`**
 Configure the storage account and state backend. 
 
 You will need to create a Storage Account, before you can us Azure Storage as a backend.
@@ -53,17 +61,6 @@ Create a Service Principal for Terraform and replace the below values in the ter
     * client_id
     * client_secret
     * tenant_id
-
-Login to Azure:<br>
-**`az login`**
-
-Create the password based authentication service principal for your project and query it for your ID and SECRET data: <br>
-    **`az ad sp create-for-rbac --name SPProject3 --query "{client_id: appId, client_secret: password, tenant_id: tenant}"`**<br>
-Make note of the password because it can't be retrieved, only reset.
-
-Login to the Service Principal using the following command with you credentials from the previous step: <br>
-    **`az login --service-principal --username APP_ID --tenant TENANT_ID --password CLIENT_SECRET`**
-
 [Click Here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) if you need help with the steps for creating a service principal.
 #### 2. Azure DevOps
 
