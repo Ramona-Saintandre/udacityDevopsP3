@@ -62,6 +62,5 @@ module "vm" {
   resource_group  = module.resource_group.resource_group_name
   public_ip       = module.publicip.public_ip_address_id
   admin_username  = var.admin_username
-  #packer_image    = var.packer_image
   public_key_path = var.public_key_path
 }
