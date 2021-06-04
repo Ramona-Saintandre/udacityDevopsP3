@@ -1,4 +1,4 @@
-resource "azurerm_network_interface" "vm-test-automation" {
+resource "azurerm_network_interface" "vm-test" {
   name                = "test-nic"
   location            = var.location
   resource_group_name = var.resource_group
