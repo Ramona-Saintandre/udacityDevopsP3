@@ -34,7 +34,7 @@ PS E:\udacityDevopsP3>
 ## Storage account resources   
 [Upload a file to Azure Storage Account using Terraform.](https://www.youtube.com/watch?v=zrVFl2Yfuxs)
 
-#6/3 
+# 6/3 
 thenewmona@mona-bigEnvy:/mnt/e/udacityDevopsP3$ echo "storage_account_name: $STORAGE_ACCOUNT_NAME"
 container_name: $CONTAINER_NAME"
 echo "access_key: $ACCOUNT_KEY"storage_account_name: udacityp3storage
@@ -44,12 +44,16 @@ thenewmona@mona-bigEnvy:/mnt/e/udacityDevopsP3$ echo "access_key: $ACCOUNT_KEY"
 access_key: dYVXU5EvgiaiOPHgZT0+9Op4eSWKbPnXJofHvwxgb3aYz9ByhjVTsio+PkpgNTAnHMCQSprOPCgaAp0hlsrFvA==
 thenewmona@mona-bigEnvy:/mnt/e/udacityDevopsP3$
 
-## Service principal 
+## Service principal  - UdacityP3-quality
+az ad sp create-for-rbac --name UdacityP3-quality --query "{client_id: appId, client_secret: password, tenant_id: tenant}"
+
 **[az ad sp: commands](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest)
 The above resource is a list of commands for service principals. 
 Including how to list them, delete them, and modify them. 
 [Azure Service Principal - SPN-video tutorial](https://www.youtube.com/watch?v=-F9yzj4Kjeo)
 [Keep your Azure Subscription Clean Automatically](https://dev.to/azure/keep-your-azure-subscription-clean-automatically-mmi)
+
+az login --service-principal --username 2f50d87a-b33b-4719-adc8-728994d71a72 --tenant 38e23809-f428-4d08-9f4e-b3b8b2df585c --password jFSAwvD4ZY_SN.hHtb3kIVpAhfKYiTlKn-
 
 ## 5/30/2021
 
