@@ -1,13 +1,13 @@
 #!/bin/bash
 RESOURCE_GROUP_NAME=UdacityP3-tstate
-STORAGE_ACCOUNT_NAME=UdacityP3tstate
+STORAGE_ACCOUNT_NAME=udacityp3storage
 CONTAINER_NAME=tstate
 
 # Create policy assignment
-az policy definition create --name tagging-policy --mode indexed --rules policy.json
+# az policy definition create --name tagging-policy --mode indexed --rules policy.json
 
 # Assign policy
-az policy assignment create --policy tagging-policy
+# az policy assignment create --policy tagging-policy
 
 # Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus

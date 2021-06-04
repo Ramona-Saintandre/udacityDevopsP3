@@ -33,6 +33,17 @@ PS E:\udacityDevopsP3>
 
 ## Storage account resources   
 [Upload a file to Azure Storage Account using Terraform.](https://www.youtube.com/watch?v=zrVFl2Yfuxs)
+
+#6/3 
+thenewmona@mona-bigEnvy:/mnt/e/udacityDevopsP3$ echo "storage_account_name: $STORAGE_ACCOUNT_NAME"
+container_name: $CONTAINER_NAME"
+echo "access_key: $ACCOUNT_KEY"storage_account_name: udacityp3storage
+thenewmona@mona-bigEnvy:/mnt/e/udacityDevopsP3$ echo "container_name: $CONTAINER_NAME"
+container_name: tstate
+thenewmona@mona-bigEnvy:/mnt/e/udacityDevopsP3$ echo "access_key: $ACCOUNT_KEY"
+access_key: dYVXU5EvgiaiOPHgZT0+9Op4eSWKbPnXJofHvwxgb3aYz9ByhjVTsio+PkpgNTAnHMCQSprOPCgaAp0hlsrFvA==
+thenewmona@mona-bigEnvy:/mnt/e/udacityDevopsP3$
+
 ## Service principal 
 **[az ad sp: commands](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest)
 The above resource is a list of commands for service principals. 
