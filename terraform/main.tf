@@ -11,7 +11,7 @@ terraform {
     storage_account_name = "udacityp3storage"
     container_name       = "tstate"
     key                  = "terraform.tfstate"
-    access_key           =  "dYVXU5EvgiaiOPHgZT0+9Op4eSWKbPnXJofHvwxgb3aYz9ByhjVTsio+PkpgNTAnHMCQSprOPCgaAp0hlsrFvA=="
+    access_key           =  ""
   }
 }
 module "resource_group" {
@@ -56,7 +56,7 @@ module "publicip" {
 }
 module "vm" {
   source          = "./modules/vm"
-  name            = "vm-test-automation"
+  name            = "vm-udacityP3"
   location        = var.location
   subnet_id       = module.network.subnet_id_test
   resource_group  = module.resource_group.resource_group_name
