@@ -123,6 +123,10 @@ notes.md
 .pub 
 /.pub 
 y.pub 
+y
+.y
+/.y
+./y
 
 # Pyre type checker
 .pyre/
