@@ -58,10 +58,10 @@ module "vm" {
   source          = "./modules/vm"
   location        = var.location
   application_type = var.application_type
-  resource_type        = "VM"
+  resource_type    = "VM"
   subnet_id       = module.network.subnet_id_test
   resource_group  = module.resource_group.resource_group_name
   public_ip_address_id = module.publicip.public_ip_address_id
   admin_username  = var.admin_username
-  public_key_path = var.public_key_path
+  
 }
