@@ -11,7 +11,7 @@ terraform {
     storage_account_name = "udacityp3storage"
     container_name       = "tstate"
     key                  = "terraform.tfstate"
-    access_key           =  "ceNydw+fKXP9/Y4uDYdgyPAOTms3YUqZUWWOoFSk7ZhAOdc/1mFsO40stDNqTcPs8qXfigcZoDRQ0V/b+xH7Qg=="
+    
   }
 }
 module "resource_group" {

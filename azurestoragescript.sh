@@ -17,6 +17,7 @@ az storage account create --resource-group UdacityP3-tstate --name udacityp3stor
 
 az storage account create --name udacityp3storage --resource-group UdacityP3-blob --location centralus --kind StorageV2 --sku Standard_LRS --https-only true --allow-blob-public-access false
 
+az ad sp create-for-rbac -n "UdacityP3-SP" --role Contributor --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 
 # Get storage account key
 ACCOUNT_KEY=$(az storage account keys list --resource-group UdacityP3-blob --account-name udacityp3storage --query '[0].value' -o tsv)
