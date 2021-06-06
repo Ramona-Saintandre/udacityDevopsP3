@@ -7,11 +7,11 @@ provider "azurerm" {
 }
 terraform {
   backend "azurerm" {
-   resource_group_name  = "UdacityP3-tstate"
+   resource_group_name  = "UdacityP3-blob"
     storage_account_name = "udacityp3storage"
     container_name       = "tstate"
     key                  = "terraform.tfstate"
-    access_key           =  "pMebkXhJEroMrgLYthf54aq+gDqfFO5cNP/ECUD1VOGYgK7sEie52DnYgdSY48qUxGLY7rU0nUwJOAhWyWrICw=="
+    access_key           =  "ceNydw+fKXP9/Y4uDYdgyPAOTms3YUqZUWWOoFSk7ZhAOdc/1mFsO40stDNqTcPs8qXfigcZoDRQ0V/b+xH7Qg=="
   }
 }
 module "resource_group" {
