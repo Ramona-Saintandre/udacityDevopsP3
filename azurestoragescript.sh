@@ -10,7 +10,7 @@ CONTAINER_NAME=tstate
 # az policy assignment create --policy tagging-policy
 
 # Create resource group
-az group create --name UdacityP3-tstate --location centralus
+az group create --name UdacityP3-CICD --location centralus
 # Create storage account
 az storage account create --resource-group UdacityP3-tstate --name udacityp3storage --sku Standard_LRS --encryption-services blob --location CentralUS 
 
