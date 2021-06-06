@@ -139,6 +139,6 @@ terraform.tfvars
 .terraform.tfvars
 /.terraform.tfvars
 ./terraform.tfvars
-
+.tfvars
 
 chromedriver.exe
