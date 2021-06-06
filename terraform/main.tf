@@ -34,7 +34,7 @@ module "nsg-test" {
   source           = "./modules/networksecuritygroup"
   location         = var.location
   application_type = var.application_type
-  resource_type    = NSG
+  resource_type    = sg
   resource_group   = module.resource_group.resource_group_name
   subnet_id        = module.network.subnet_id_test
   address_prefix_test = var.address_prefix_test
