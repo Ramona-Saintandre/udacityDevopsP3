@@ -19,9 +19,9 @@ az storage account create --name udacityp3storage --resource-group UdacityP3-blo
 
 
 # Get storage account key
-ACCOUNT_KEY=$(az storage account keys list --resource-group UdacityP3-tstate --account-name udacityp3storage --query '[0].value' -o tsv)
+ACCOUNT_KEY=$(az storage account keys list --resource-group UdacityP3-blob --account-name udacityp3storage --query '[0].value' -o tsv)
 # Create blob container
-az storage container create --name tstate --account-name udacityp3storage --account-key pMebkXhJEroMrgLYthf54aq+gDqfFO5cNP/ECUD1VOGYgK7sEie52DnYgdSY48qUxGLY7rU0nUwJOAhWyWrICw== --resource-group UdacityP3-tstate
+az storage container create --name tstate --account-name udacityp3storage --account-key ceNydw+fKXP9/Y4uDYdgyPAOTms3YUqZUWWOoFSk7ZhAOdc/1mFsO40stDNqTcPs8qXfigcZoDRQ0V/b+xH7Qg== --resource-group UdacityP3-blob
 echo "storage_account_name: udacityp3storage"
 echo "container_name: tstate"
 echo "access_key: $ACCOUNT_KEY"
