@@ -15,6 +15,8 @@ az group create --name UdacityP3-blob --location centralus # storage resource gr
 # Create storage account
 az storage account create --resource-group UdacityP3-tstate --name udacityp3storage --sku Standard_LRS --encryption-services blob --location CentralUS 
 
+az storage account create --name udacityp3storage --resource-group UdacityP3-blob --location centralus --kind StorageV2 --sku Standard_LRS --https-only true --allow-blob-public-access false
+
 
 # Get storage account key
 ACCOUNT_KEY=$(az storage account keys list --resource-group UdacityP3-tstate --account-name udacityp3storage --query '[0].value' -o tsv)
