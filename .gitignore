@@ -136,6 +136,9 @@ y
 .tfstate
 .tfstate.backup
 terraform.tfvars
+.terraform.tfvars
+/.terraform.tfvars
+./terraform.tfvars
 
 
 chromedriver.exe
