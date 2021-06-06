@@ -58,6 +58,7 @@ module "vm" {
   source          = "./modules/vm"
   name            = "vm-udacityP3"
   location        = var.location
+  application_type = var.application_type
   subnet_id       = module.network.subnet_id_test
   resource_group  = module.resource_group.resource_group_name
   public_ip_address_id = module.publicip.public_ip_address_id
