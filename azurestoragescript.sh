@@ -10,14 +10,15 @@ CONTAINER_NAME=tstate
 # az policy assignment create --policy tagging-policy
 
 # Create resource group
-az group create --name $RESOURCE_GROUP_NAME --location eastus
+az group create --name UdacityP3-tstate --location centralus
 # Create storage account
-az storage account create --resource-group $RESOURCE_GROUP_NAME --name $STORAGE_ACCOUNT_NAME --sku Standard_LRS --encryption-services blob
+az storage account create --resource-group UdacityP3-tstate --name udacityp3storage --sku Standard_LRS --encryption-services blob --location CentralUS 
+
 
 # Get storage account key
-ACCOUNT_KEY=$(az storage account keys list --resource-group $RESOURCE_GROUP_NAME --account-name $STORAGE_ACCOUNT_NAME --query '[0].value' -o tsv)
+ACCOUNT_KEY=$(az storage account keys list --resource-group UdacityP3-tstate --account-name udacityp3storage --query '[0].value' -o tsv)
 # Create blob container
-az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --account-key $ACCOUNT_KEY
-echo "storage_account_name: $STORAGE_ACCOUNT_NAME"
-echo "container_name: $CONTAINER_NAME"
+az storage container create --name tstate --account-name udacityp3storage --account-key pMebkXhJEroMrgLYthf54aq+gDqfFO5cNP/ECUD1VOGYgK7sEie52DnYgdSY48qUxGLY7rU0nUwJOAhWyWrICw== --resource-group UdacityP3-tstate
+echo "storage_account_name: udacityp3storage"
+echo "container_name: tstate"
 echo "access_key: $ACCOUNT_KEY"
