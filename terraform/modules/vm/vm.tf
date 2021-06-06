@@ -12,7 +12,7 @@ resource "azurerm_network_interface" "vm-test" {
 }
 
 resource "azurerm_linux_virtual_machine" "test" {
-  name                  = "test-vm"
+  name                  = "udacityp3-test-vm"
   location              = var.location
   resource_group_name   = var.resource_group
   size                  = "Standard_B1s"
