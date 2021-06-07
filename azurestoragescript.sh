@@ -26,3 +26,11 @@ az storage container create --name tstate --account-name udacityp3storage --acco
 echo "storage_account_name: udacityp3storage"
 echo "container_name: tstate"
 echo "access_key: $ACCOUNT_KEY"
+
+## udacityp3-RG 
+- udacitystorageacct
+- udacityp3blob
+
+## testrg 
+appService-puplicip
+udacityp3-test-vm 
