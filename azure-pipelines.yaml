@@ -6,7 +6,7 @@ stages:
   jobs:
   - job: Build
     pool:
-      name: Hosted Ubuntu 2004
+      name: Hosted "Ubuntu-latest"
     #steps:
     # Needed for Terraform VM deployment
     # - task: InstallSSHKey@0
