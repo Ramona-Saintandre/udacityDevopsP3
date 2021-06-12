@@ -34,3 +34,5 @@ echo "access_key: $ACCOUNT_KEY"
 ## testrg 
 appService-puplicip
 udacityp3-test-vm 
+
+trying to figure out what is going on here
