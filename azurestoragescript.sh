@@ -13,7 +13,7 @@ CONTAINER_NAME=tstate
  az group create --name UdacityP3-CICD --location centralus # VM resource group
 az group create --name UdacityP3-blob --location centralus # storage resource group
 # Create storage account
-az storage account create --resource-group UdacityP3-tstate --name udacityp3storage --sku Standard_LRS --encryption-services blob --location CentralUS 
+az storage account create --resource-group UdacityP3-RG --name udacityp3storage --sku Standard_LRS --encryption-services blob --location CentralUS 
 
 az storage account create --name udacityp3storage --resource-group UdacityP3-blob --location centralus --kind StorageV2 --sku Standard_LRS --https-only true --allow-blob-public-access false
 
