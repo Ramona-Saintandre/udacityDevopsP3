@@ -25,7 +25,7 @@ stages:
     steps:
     - task: DownloadSecureFile@1
       inputs:
-        secureFile: '.env'
+        secureFile: 'terraform.tfvars'
     #steps:
     # Needed for Terraform VM deployment
     # - task: InstallSSHKey@0
