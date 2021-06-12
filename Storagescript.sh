@@ -1,7 +1,7 @@
 #!/bin/bash
 RESOURCE_GROUP_NAME=UdacityP3-tstate
 STORAGE_ACCOUNT_NAME=udacityp3storage
-CONTAINER_NAME=tstate
+CONTAINER_NAME=tstates
 
 # Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus
