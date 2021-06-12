@@ -1,12 +1,31 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+    -  README.md
+    - .gitignore
+    - screenshots
 name: Azure Pipelines
 variables:
-  python.version: '3.9.2'
+  python.version: '3.9.1'
 stages:
-- stage: Build
+- stage: Provision
   jobs:
-  - job: Build
+  - job: provision_azure_infrastructure
+    displayName: Provision Azure Infrastructure
     pool:
-      name: Hosted "Ubuntu-latest"
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: DownloadSecureFile@1
+      inputs:
+        secureFile: '.env'
     #steps:
     # Needed for Terraform VM deployment
     # - task: InstallSSHKey@0
