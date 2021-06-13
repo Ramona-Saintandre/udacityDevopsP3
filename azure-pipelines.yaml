@@ -29,13 +29,20 @@ stages:
       inputs:
         secureFile: 'terraform.tfvars'
         
-    
-    # Needed for Terraform VM deployment
+   
+
+   # Needed for Terraform VM deployment
     - task: InstallSSHKey@0
       inputs:
-       knownHostsEntry: 'KNOWN_HOSTS_STRING'
-       sshPublicKey: 'PUBLIC_KEY'
-       sshKeySecureFile: 'id_rsa'
+        knownHostsEntry: 'known_hosts'
+        sshPublicKey: '$(ssh_pub_key)'
+        sshKeySecureFile: 'id_rsa.pub'
+    - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
+      displayName: 'Use Terraform latest'
+      inputs:
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+
+ #-------Terraform Resources----------------------
 
     # - deployment: VMDeploy
   #   displayName: NAME
