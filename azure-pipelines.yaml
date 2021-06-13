@@ -7,6 +7,7 @@ trigger:
   branches:
     include:
       - master
+  
   paths:
     exclude:
     -  README.md
@@ -23,19 +24,20 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+    
     - task: DownloadSecureFile@1
       inputs:
         secureFile: 'terraform.tfvars'
         
     
     # Needed for Terraform VM deployment
-    # - task: InstallSSHKey@0
-    #   inputs:
-    #     knownHostsEntry: 'KNOWN_HOSTS_STRING'
-    #     sshPublicKey: 'PUBLIC_KEY'
-    #     sshKeySecureFile: 'id_rsa'
-    #
-  # - deployment: VMDeploy
+    - task: InstallSSHKey@0
+      inputs:
+       knownHostsEntry: 'KNOWN_HOSTS_STRING'
+       sshPublicKey: 'PUBLIC_KEY'
+       sshKeySecureFile: 'id_rsa'
+
+    # - deployment: VMDeploy
   #   displayName: NAME
   #   environment:
   #     name:  ENVIRONMENT NAME
@@ -50,6 +52,17 @@ stages:
   #             targetType: 'inline'
   #             script: |
   #               #! /bin/bash
+  
+  # -------resources for Terraform ------------------
+  
+
+    #--------- Postman/Newman---------------
+    #---------Selenium----------------------
+    #---------Installing Log Agents---------
+    #---------Jmeter------------------------
+    #---------Destroy project---------------
+
+  
                 
   #               sudo apt-get upgrade -y
   #               sudo apt-get install python3-pip -y
