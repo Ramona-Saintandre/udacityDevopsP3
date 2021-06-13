@@ -32,15 +32,12 @@ stages:
    
 
    # Needed for Terraform VM deployment
-    - task: InstallSSHKey@0
-      inputs:
-        knownHostsEntry: 'known_hosts'
-        sshPublicKey: '$(ssh_pub_key)'
-        sshKeySecureFile: 'id_rsa.pub'
-    - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
-      displayName: 'Use Terraform latest'
-      inputs:
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+    # - task: InstallSSHKey@0
+    #   inputs:
+    #     knownHostsEntry: 'KNOWN_HOSTS_STRING'
+    #     sshPublicKey: 'PUBLIC_KEY'
+    #     sshKeySecureFile: 'id_rsa'
+    #
 
  #-------Terraform Resources----------------------
 
