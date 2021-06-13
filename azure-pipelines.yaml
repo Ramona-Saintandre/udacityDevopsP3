@@ -26,8 +26,7 @@ stages:
     - task: DownloadSecureFile@1
       inputs:
         secureFile: 'terraform.tfvars'
-        socketTimeout: 
-        retryCount: 
+        
     
     # Needed for Terraform VM deployment
     # - task: InstallSSHKey@0
