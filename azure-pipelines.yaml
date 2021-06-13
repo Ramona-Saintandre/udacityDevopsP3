@@ -12,7 +12,7 @@ trigger:
     -  README.md
     - .gitignore
     - screenshots
-name: Azure Pipelines
+name: UdacityP3 Pipelines
 variables:
   python.version: '3.9.1'
 stages:
@@ -26,6 +26,9 @@ stages:
     - task: DownloadSecureFile@1
       inputs:
         secureFile: 'terraform.tfvars'
+        socketTimeout: 
+        retryCount: 
+    
     #steps:
     # Needed for Terraform VM deployment
     # - task: InstallSSHKey@0
@@ -33,7 +36,8 @@ stages:
     #     knownHostsEntry: 'KNOWN_HOSTS_STRING'
     #     sshPublicKey: 'PUBLIC_KEY'
     #     sshKeySecureFile: 'id_rsa'
-#
+
+#----------------------------------Deploy Resources with Terraform----------------------------------
   # - deployment: VMDeploy
   #   displayName: NAME
   #   environment:
