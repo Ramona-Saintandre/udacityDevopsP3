@@ -7,6 +7,7 @@ trigger:
   branches:
     include:
       - master
+  
   paths:
     exclude:
     -  README.md
@@ -22,20 +23,45 @@ stages:
     displayName: Provision Azure Infrastructure
     pool:
       vmImage: 'ubuntu-latest'
-    steps:
+    steps:    
     - task: DownloadSecureFile@1
       inputs:
         secureFile: 'terraform.tfvars'
-        
     
     # Needed for Terraform VM deployment
     # - task: InstallSSHKey@0
     #   inputs:
     #     knownHostsEntry: 'KNOWN_HOSTS_STRING'
     #     sshPublicKey: 'PUBLIC_KEY'
-    #     sshKeySecureFile: 'id_rsa'
+    #     sshKeySecureFile: 'id_rsa.pub'
     #
-  # - deployment: VMDeploy
+    - task: InstallSSHKey@0
+      inputs:
+        knownHostsEntry: '$(KNOWN_HOST)'
+        sshPublicKey: '$(gitkeypub)'
+        sshKeySecureFile: 'id_rsa'
+    - task: TerraformInstaller@0
+      inputs:
+        terraformVersion: 'latest'
+
+ #-------Terraform Deployment Resources----------------------
+    - task: TerraformCLI@0
+      inputs:
+        command: 'init'
+        secureVarsFile: 'terraform.tfvars'
+        backendType: 'azurerm'
+        backendServiceArm: 'Resource Group'
+        ensureBackend: true
+        backendAzureRmResourceGroupName: 'udacityp3-RG'
+        backendAzureRmStorageAccountName: 'udacitystorageacct'
+        backendAzureRmContainerName: 'udacityp3-blobcontain'
+        backendAzureRmKey: 'gCYcel4/8pvkzR2jnILtTyH+cUUrPPnhmu704dJwDF1bdSGdFA+F+bXv36prVzyNDg6TiHxB6Qh3inIF43VdFA=='
+        allowTelemetryCollection: false
+
+
+    
+
+    # - deployment: VMDeploy
   #   displayName: NAME
   #   environment:
   #     name:  ENVIRONMENT NAME
@@ -50,6 +76,17 @@ stages:
   #             targetType: 'inline'
   #             script: |
   #               #! /bin/bash
+  
+  # -------resources for Terraform ------------------
+  
+
+    #--------- Postman/Newman---------------
+    #---------Selenium----------------------
+    #---------Installing Log Agents---------
+    #---------Jmeter------------------------
+    #---------Destroy project---------------
+
+  
                 
   #               sudo apt-get upgrade -y
   #               sudo apt-get install python3-pip -y
