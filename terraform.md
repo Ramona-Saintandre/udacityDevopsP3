@@ -5,7 +5,7 @@
         provider: 'azurerm'
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-        backendServiceArm: 'SPProject3-Terraform'
+        backendServiceArm: 'UdacityP3-sp'
         backendAzureRmResourceGroupName: 'udacityp3-RG'
         backendAzureRmStorageAccountName: 'udacityp3storageacct'
         backendAzureRmKey: 'terraform.tfstate'
