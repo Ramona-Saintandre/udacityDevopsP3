@@ -33,7 +33,7 @@ stages:
     #   inputs:
     #     knownHostsEntry: 'KNOWN_HOSTS_STRING'
     #     sshPublicKey: 'PUBLIC_KEY'
-    #     sshKeySecureFile: 'id_rsa'
+    #     sshKeySecureFile: 'id_rsa.pub'
     #
     - task: InstallSSHKey@0
       inputs:
