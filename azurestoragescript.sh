@@ -31,6 +31,7 @@ echo "access_key: $ACCOUNT_KEY"
 - udacitystorageacct
 - udacityp3blob
 
+## need to remember what this is for 
 ## testrg 
 appService-puplicip
 udacityp3-test-vm 
