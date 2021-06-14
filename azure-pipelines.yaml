@@ -51,7 +51,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
         secureVarsFile: '.env'
         backendType: 'azurerm'
-        backendServiceArm: 'Resource Group'
+        backendServiceArm: 'udacityP3-sp'
         ensureBackend: true
         backendAzureRmResourceGroupName: 'udacityp3-RG'
         backendAzureRmResourceGroupLocation: 'centralus'
@@ -69,10 +69,20 @@ stages:
       inputs:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+        environmentServiceName: 'udacityP3-sp'
         runAzLogin: true
         secureVarsFile: 'terraform.tfvars'
-        allowTelemetryCollection: false
-        publishPlanResults: 'TerraformPlan_613'
+
+    - task: TerraformCLI@0
+      inputs:
+       command: 'apply'
+       workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+       environmentServiceName: 'udacityP3-sp'
+       runAzLogin: true
+       secureVarsFile: 'terraform.tfvars'
+       commandOptions: '-auto-approve'
+       allowTelemetryCollection: true
+  
 
     # - deployment: VMDeploy
   #   displayName: NAME
@@ -90,7 +100,7 @@ stages:
   #             script: |
   #               #! /bin/bash
   
-  # -------resources for Terraform ------------------
+  
   
 
     #--------- Postman/Newman---------------
