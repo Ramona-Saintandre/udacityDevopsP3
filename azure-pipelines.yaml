@@ -48,6 +48,7 @@ stages:
     - task: TerraformCLI@0
       inputs:
         command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
         secureVarsFile: '.env'
         backendType: 'azurerm'
         backendServiceArm: 'Resource Group'
@@ -61,11 +62,13 @@ stages:
     - task: TerraformCLI@0
       inputs:
         command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
         allowTelemetryCollection: false
 
     - task: TerraformCLI@0
       inputs:
         command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
         runAzLogin: true
         secureVarsFile: 'terraform.tfvars'
         allowTelemetryCollection: false
