@@ -48,7 +48,7 @@ stages:
     - task: TerraformCLI@0
       inputs:
         command: 'init'
-        secureVarsFile: 'terraform.tfvars'
+        secureVarsFile: '.env'
         backendType: 'azurerm'
         backendServiceArm: 'Resource Group'
         ensureBackend: true
