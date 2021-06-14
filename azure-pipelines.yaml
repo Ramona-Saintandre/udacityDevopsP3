@@ -63,13 +63,13 @@ stages:
         command: 'validate'
         allowTelemetryCollection: false
 
- - task: TerraformCLI@0
-   inputs:
-     command: 'plan'
-     runAzLogin: true
-     secureVarsFile: 'terraform.tfvars'
-     allowTelemetryCollection: false
-     publishPlanResults: 'TerraformPlan_613'
+    - task: TerraformCLI@0
+      inputs:
+        command: 'plan'
+        runAzLogin: true
+        secureVarsFile: 'terraform.tfvars'
+        allowTelemetryCollection: false
+        publishPlanResults: 'TerraformPlan_613'
 
     # - deployment: VMDeploy
   #   displayName: NAME
