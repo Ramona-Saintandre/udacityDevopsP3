@@ -58,7 +58,10 @@ stages:
         backendAzureRmContainerName: 'udacityp3-blobcontain'
         backendAzureRmKey: '$(BACKEND_KEY)'
         allowTelemetryCollection: false
-
+    - task: TerraformCLI@0
+      inputs:
+        command: 'validate'
+        allowTelemetryCollection: false
 
     
 
