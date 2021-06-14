@@ -48,7 +48,8 @@ stages:
     - task: TerraformCLI@0
       inputs:
         command: 'init'
-        secureVarsFile: 'terraform.tfvars'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+        secureVarsFile: '.env'
         backendType: 'azurerm'
         backendServiceArm: 'Resource Group'
         ensureBackend: true
@@ -58,9 +59,20 @@ stages:
         backendAzureRmContainerName: 'udacityp3-blobcontain'
         backendAzureRmKey: '$(BACKEND_KEY)'
         allowTelemetryCollection: false
+    - task: TerraformCLI@0
+      inputs:
+        command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+        allowTelemetryCollection: false
 
-
-    
+    - task: TerraformCLI@0
+      inputs:
+        command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+        runAzLogin: true
+        secureVarsFile: 'terraform.tfvars'
+        allowTelemetryCollection: false
+        publishPlanResults: 'TerraformPlan_613'
 
     # - deployment: VMDeploy
   #   displayName: NAME
