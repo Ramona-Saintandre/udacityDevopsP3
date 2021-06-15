@@ -51,12 +51,12 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
         secureVarsFile: '.env'
         backendType: 'azurerm'
-        backendServiceArm: 'Udacityp3-pipeline'
+        backendServiceArm: 'BlobStorage'
         ensureBackend: true
-        backendAzureRmResourceGroupName: 'udacityp3-RG'
+        backendAzureRmResourceGroupName: 'UdacityP3-blob'
         backendAzureRmResourceGroupLocation: 'centralus'
-        backendAzureRmStorageAccountName: 'udacityp3storageacct'
-        backendAzureRmContainerName: 'udacityp3-blobcontain'
+        backendAzureRmStorageAccountName: 'udacitystorageacct'
+        backendAzureRmContainerName: 'udacityp3blobcontain'
         backendAzureRmKey: '$(BACKEND_KEY)'
         allowTelemetryCollection: false
     - task: TerraformCLI@0
