@@ -55,7 +55,7 @@ stages:
         ensureBackend: true
         backendAzureRmResourceGroupName: 'udacityp3-RG'
         backendAzureRmResourceGroupLocation: 'centralus'
-        backendAzureRmStorageAccountName: 'udacitystorageacct'
+        backendAzureRmStorageAccountName: 'udacityp3storageacct'
         backendAzureRmContainerName: 'udacityp3-blobcontain'
         backendAzureRmKey: '$(BACKEND_KEY)'
         allowTelemetryCollection: false
