@@ -151,9 +151,9 @@ terraform.tfvars
 ./terraform.tfvars
 .tfvars
 
-main.tf 
-.main.tf 
-/.main.tf 
-./main.tf 
+#main.tf 
+#.main.tf 
+#/.main.tf 
+#./main.tf 
 
 chromedriver.exe
