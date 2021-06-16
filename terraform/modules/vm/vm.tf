@@ -11,7 +11,7 @@ resource "azurerm_network_interface" "test" {
   }
 }
 
-resource "azurerm_linux_virtual_machine" "test" {
+resource "azurerm_linux_virtual_machine" "Udacityp3_test" {
   name                  = "udacityp3-test-vm"
   location              = var.location
   resource_group_name   = var.resource_group
