@@ -69,3 +69,12 @@ stages:
               secureVarsFile: terraform.tfvars
               commandOptions: '-auto-approve'
               allowTelemetryCollection: true
+          - task: TerraformCLI@0
+            inputs:
+                  command: 'apply'
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+                  environmentServiceName: 'Udacityp3-pipeline'
+                  runAzLogin: true
+                  secureVarsFile: terraform.tfvars
+                  commandOptions: '-auto-approve'
+                  allowTelemetryCollection: true
