@@ -1,5 +1,5 @@
 
-[![Build Status](https://dev.azure.com/ramonasaintandre0285/UdacityP3-ensuringquality/_apis/build/status/Ramona-Saintandre.udacityDevopsP3?branchName=master)  
+![Build Status](https://dev.azure.com/ramonasaintandre0285/UdacityP3-ensuringquality/_apis/build/status/Ramona-Saintandre.udacityDevopsP3?branchName=master)  
 
 
 # Udacity-Azure-Devops-P3: Ensuring Quality Releases
