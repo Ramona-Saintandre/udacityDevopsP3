@@ -35,12 +35,13 @@ stages:
             inputs:
               terraformVersion: latest
           - task: TerraformCLI@0
+            displayName: 'terraform init'
             inputs:
               command: init
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               secureVarsFile: .env
               backendType: azurerm
-              backendServiceArm: BlobStorage
+              backendServiceArm: BlobStorag
               ensureBackend: true
               backendAzureRmResourceGroupName: UdacityP3-blob
               backendAzureRmResourceGroupLocation: centralus
@@ -49,11 +50,13 @@ stages:
               backendAzureRmKey: $(BACKEND_KEY)
               allowTelemetryCollection: false
           - task: TerraformCLI@0
+            displayName: 'terraform validate'
             inputs:
               command: validate
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               allowTelemetryCollection: false
           - task: TerraformCLI@0
+            displayName: 'terraform plan'
             inputs:
               command: plan
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
@@ -61,6 +64,7 @@ stages:
               runAzLogin: true
               secureVarsFile: terraform.tfvars
           - task: TerraformCLI@0
+            displayName: 'terraform apply'
             inputs:
               command: apply
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
@@ -69,12 +73,4 @@ stages:
               secureVarsFile: terraform.tfvars
               commandOptions: '-auto-approve'
               allowTelemetryCollection: true
-          - task: TerraformCLI@0
-            inputs:
-                  command: 'apply'
-                  workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-                  environmentServiceName: 'Udacityp3-pipeline'
-                  runAzLogin: true
-                  secureVarsFile: terraform.tfvars
-                  commandOptions: '-auto-approve'
-                  allowTelemetryCollection: true
+        
