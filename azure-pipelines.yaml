@@ -1,121 +1,67 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-#trigger pipeline
+---
 trigger:
   branches:
     include:
       - master
-  
   paths:
     exclude:
-    -  README.md
-    - .gitignore
-    - screenshots
+      - README.md
+      - .gitignore
+      - screenshots
 name: UdacityP3 Pipelines
 variables:
-  python.version: '3.9.1'
+  python.version: 3.9.1
 stages:
-- stage: Provision
-  jobs:
-  - job: provision_azure_infrastructure
-    displayName: Provision Azure Infrastructure
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:    
-    - task: DownloadSecureFile@1
-      inputs:
-        secureFile: '.env'
-    
-    # Needed for Terraform VM deployment
-    # - task: InstallSSHKey@0
-    #   inputs:
-    #     knownHostsEntry: 'KNOWN_HOSTS_STRING'
-    #     sshPublicKey: 'PUBLIC_KEY'
-    #     sshKeySecureFile: 'id_rsa.pub'
-    #
-    - task: InstallSSHKey@0
-      inputs:
-        knownHostsEntry: 'KNOWN_HOSTS_STRING'
-        sshPublicKey: '$(GITPUBKEY)'
-        sshKeySecureFile: 'id_rsa'
-    - task: TerraformInstaller@0
-      inputs:
-        terraformVersion: 'latest'
-
- #-------Terraform Deployment Resources----------------------
-    - task: TerraformCLI@0
-      inputs:
-        command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-        secureVarsFile: '.env'
-        backendType: 'azurerm'
-        backendServiceArm: 'BlobStorage'
-        ensureBackend: true
-        backendAzureRmResourceGroupName: 'UdacityP3-blob'
-        backendAzureRmResourceGroupLocation: 'centralus'
-        backendAzureRmStorageAccountName: 'udacitystorageacct'
-        backendAzureRmContainerName: 'udacityp3blobcontain'
-        backendAzureRmKey: '$(BACKEND_KEY)'
-        allowTelemetryCollection: false
-    - task: TerraformCLI@0
-      inputs:
-        command: 'validate'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-        allowTelemetryCollection: false
-
-    - task: TerraformCLI@0
-      inputs:
-        command: 'plan'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-        environmentServiceName: 'Udacityp3-pipeline'
-        runAzLogin: true
-        secureVarsFile: 'terraform.tfvars'
-
-    - task: TerraformCLI@0
-      inputs:
-       command: 'apply'
-       workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-       environmentServiceName: 'Udacityp3-pipeline'
-       runAzLogin: true
-       secureVarsFile: 'terraform.tfvars'
-       commandOptions: '-auto-approve'
-       allowTelemetryCollection: true
-  
-
-    # - deployment: VMDeploy
-  #   displayName: NAME
-  #   environment:
-  #     name:  ENVIRONMENT NAME
-  #     resourceType: VirtualMachine
-  #     tags: TAG NAME
-  #   strategy:
-  #     runOnce:
-  #       deploy:
-  #         steps:
-  #         - task: Bash@3
-  #           inputs:
-  #             targetType: 'inline'
-  #             script: |
-  #               #! /bin/bash
-  
-  
-  
-
-    #--------- Postman/Newman---------------
-    #---------Selenium----------------------
-    #---------Installing Log Agents---------
-    #---------Jmeter------------------------
-    #---------Destroy project---------------
-
-  
-                
-  #               sudo apt-get upgrade -y
-  #               sudo apt-get install python3-pip -y
-  #               sudo apt-get install unzip -y
-  #               sudo apt-get install -y chromium-browser
-  #               pip3 install selenium
-  #               export PATH=$PATH:some/path
-
-
+  - stage: Provision
+    jobs:
+      - job: provision_azure_infrastructure
+        displayName: Provision Azure Infrastructure
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: DownloadSecureFile@1
+            inputs:
+              secureFile: .env
+          - task: InstallSSHKey@0
+            inputs:
+              knownHostsEntry: KNOWN_HOSTS_STRING
+              sshPublicKey: $(GITPUBKEY)
+              sshKeySecureFile: id_rsa
+          - task: TerraformInstaller@0
+            inputs:
+              terraformVersion: latest
+          - task: TerraformCLI@0
+            inputs:
+              command: init
+              workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+              secureVarsFile: .env
+              backendType: azurerm
+              backendServiceArm: BlobStorage
+              ensureBackend: true
+              backendAzureRmResourceGroupName: UdacityP3-blob
+              backendAzureRmResourceGroupLocation: centralus
+              backendAzureRmStorageAccountName: udacitystorageacct
+              backendAzureRmContainerName: udacityp3blobcontain
+              backendAzureRmKey: $(BACKEND_KEY)
+              allowTelemetryCollection: false
+          - task: TerraformCLI@0
+            inputs:
+              command: validate
+              workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+              allowTelemetryCollection: false
+          - task: TerraformCLI@0
+            inputs:
+              command: plan
+              workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+              environmentServiceName: Udacityp3-pipeline
+              runAzLogin: true
+              secureVarsFile: terraform.tfvars
+          - task: TerraformCLI@0
+            inputs:
+              command: apply
+              workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+              environmentServiceName: Udacityp3-pipeline
+              runAzLogin: true
+              secureVarsFile: terraform.tfvars
+              commandOptions: '-auto-approve'
+              allowTelemetryCollection: true
