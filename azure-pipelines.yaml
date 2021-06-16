@@ -41,7 +41,7 @@ stages:
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               secureVarsFile: .env
               backendType: azurerm
-              backendServiceArm: BlobStorag
+              backendServiceArm: BlobStorage
               ensureBackend: true
               backendAzureRmResourceGroupName: UdacityP3-blob
               backendAzureRmResourceGroupLocation: centralus
