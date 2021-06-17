@@ -24,7 +24,7 @@ stages:
               secureFile: .env
           - task: InstallSSHKey@0
             inputs:
-              knownHostsEntry: KNOWN_HOSTS_STRING
+              knownHostsEntry: known_host
               sshPublicKey: $(GITPUBKEY)
               sshKeySecureFile: id_rsa
           - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
