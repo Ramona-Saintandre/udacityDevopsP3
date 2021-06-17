@@ -41,13 +41,13 @@ stages:
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               secureVarsFile: .env
               backendType: azurerm
-              backendServiceArm: BlobStorage
+              backendServiceArm: UdacityP3_storage
               ensureBackend: true
-              backendAzureRmResourceGroupName: UdacityP3-blob
+              backendAzureRmResourceGroupName: udacityP3-RG
               backendAzureRmResourceGroupLocation: centralus
-              backendAzureRmStorageAccountName: udacitystorageacct
+              backendAzureRmStorageAccountName: udacityp3storageacct
               backendAzureRmContainerName: udacityp3blobcontain
-              backendAzureRmKey: $(BACKEND_KEY)
+              backendAzureRmKey: ;terraform.tfstate'
               allowTelemetryCollection: false
           - task: TerraformCLI@0
             displayName: 'terraform validate'
@@ -60,7 +60,7 @@ stages:
             inputs:
               command: plan
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: Udacityp3-pipeline
+              environmentServiceName: UdacityP3_storage
               runAzLogin: true
               secureVarsFile: terraform.tfvars
           - task: TerraformCLI@0
@@ -68,7 +68,7 @@ stages:
             inputs:
               command: apply
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: Udacityp3-pipeline
+              environmentServiceName: UdacityP3_storage
               runAzLogin: true
               secureVarsFile: terraform.tfvars
               commandOptions: '-auto-approve'
