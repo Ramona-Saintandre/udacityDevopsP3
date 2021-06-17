@@ -11,7 +11,7 @@ resource_group_name  = "udacityP3-RG"
 storage_account_name = "udacityp3storageacct"
 container_name       = "udacityp3blob"
 key                  = "terraform.tfstate"
-access_key           =  "gCYcel4/8pvkzR2jnILtTyH+cUUrPPnhmu704dJwDF1bdSGdFA+F+bXv36prVzyNDg6TiHxB6Qh3inIF43VdFA==" 
+access_key           =  "LX0Fu318M+M7MGAUekp890iR5hm5BnjDBKVlX455pzohxaHxianNKYzEquxXlZAzmLsx2xtiX7C1z+MIO9g0tg==" 
 }
 }
 module "resource_group" {
