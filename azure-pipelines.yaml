@@ -21,12 +21,12 @@ stages:
         steps:
           - task: DownloadSecureFile@1
             inputs:
-              secureFile: .env
+              secureFile: '.env'
           - task: InstallSSHKey@0
             inputs:
               knownHostsEntry: 'known_host'
               sshPublicKey: '$(gitpubkey)' 
-              sshKeySecureFile: 'id_rsa'
+              sshKeySecureFile: 'myKey'
           - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
             displayName: 'Use Terraform latest'
             inputs:
@@ -39,7 +39,7 @@ stages:
             inputs:
               command: init
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              secureVarsFile: .env
+              secureVarsFile: '.env'
               backendType: azurerm
               backendServiceArm: UdacityP3_storage
               ensureBackend: true
@@ -62,7 +62,7 @@ stages:
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               environmentServiceName: UdacityP3_storage
               runAzLogin: true
-              secureVarsFile: terraform.tfvars
+              secureVarsFile: 'terraform.tfvars'
           - task: TerraformCLI@0
             displayName: 'terraform apply'
             inputs:
@@ -70,7 +70,7 @@ stages:
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               environmentServiceName: UdacityP3_storage
               runAzLogin: true
-              secureVarsFile: terraform.tfvars
+              secureVarsFile: 'terraform.tfvars'
               commandOptions: '-auto-approve'
               allowTelemetryCollection: true
         
