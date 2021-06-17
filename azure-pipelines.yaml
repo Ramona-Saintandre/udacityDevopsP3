@@ -47,7 +47,7 @@ stages:
               backendAzureRmResourceGroupLocation: centralus
               backendAzureRmStorageAccountName: udacityp3storageacct
               backendAzureRmContainerName: udacityp3blobcontain
-              backendAzureRmKey: $(BACKEND_KEY)
+              backendAzureRmKey: LX0Fu318M+M7MGAUekp890iR5hm5BnjDBKVlX455pzohxaHxianNKYzEquxXlZAzmLsx2xtiX7C1z+MIO9g0tg==
               allowTelemetryCollection: false
           - task: TerraformCLI@0
             displayName: 'terraform validate'
