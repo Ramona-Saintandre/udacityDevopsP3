@@ -6,6 +6,14 @@ client_secret   = var.client_secret
 features {}
 }
 terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "2.47"
+    }
+  }
+  }
+terraform {
 backend "azurerm" {
 resource_group_name  = "udacityP3-RG"
 storage_account_name = "udacityp3storageacct"
