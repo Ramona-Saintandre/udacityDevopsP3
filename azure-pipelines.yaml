@@ -57,7 +57,14 @@ stages:
               backendAzureRmContainerName: udacityp3blobcontain
               backendAzureRmKey: 'terraform.tfstate'
               allowTelemetryCollection: false
-          
+          - task: TerraformCLI@0
+            inputs:
+              command: 'import'
+              environmentServiceName: 'Udacity Devops P3(25283872-c0f5-4f2e-9c2a-f19f8e24b3c4)'
+              runAzLogin: true
+              allowTelemetryCollection: true
+              resourceAddress: 'module.resource_group.azurerm_resource_group.test'
+              resourceId: '/subscriptions/25283872-c0f5-4f2e-9c2a-f19f8e24b3c4/resourceGroups/udacityp3-RG'
           - task: TerraformCLI@0
             displayName: 'terraform plan'
             inputs:
