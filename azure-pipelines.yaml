@@ -43,7 +43,7 @@ stages:
               secureVarsFile: '.env'
               backendType: azurerm
               backendServiceArm: UdacityP3_storage
-              backendAzureRmResourceGroupName: udacityP3-RG
+              backendAzureRmResourceGroupName: udacityP3-RG1
               backendAzureRmResourceGroupLocation: centralus
               backendAzureRmStorageAccountName: udacityp3storageacct
               backendAzureRmContainerName: udacityp3blobcontain
