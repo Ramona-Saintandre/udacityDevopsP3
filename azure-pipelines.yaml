@@ -21,12 +21,12 @@ stages:
         steps:
           - task: DownloadSecureFile@1
             inputs:
-              secureFile: '.env'
+              secureFile: .env
           - task: InstallSSHKey@0
             inputs:
               knownHostsEntry: 'known_host'
               sshPublicKey: '$(gitpubkey)' 
-              sshKeySecureFile: 'myKey'
+              sshKeySecureFile: 'id_rsa'
           - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
             displayName: 'Use Terraform latest'
             inputs:
