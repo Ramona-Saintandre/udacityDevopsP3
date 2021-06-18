@@ -43,7 +43,7 @@ stages:
               backendType: azurerm
               backendServiceArm: UdacityP3_storage
               ensureBackend: true
-              backendAzureRmResourceGroupName: udacityP3-ResourceGroup
+              backendAzureRmResourceGroupName: udacityP3-RG
               backendAzureRmResourceGroupLocation: centralus
               backendAzureRmStorageAccountName: udacityp3storageacct
               backendAzureRmContainerName: udacityp3blobcontain
