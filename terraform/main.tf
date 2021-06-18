@@ -7,7 +7,7 @@ features {}
 }
 terraform {
 backend "azurerm" {
-resource_group_name  = "udacityP3-RG"
+resource_group_name  = "udacityP3-ResourceGroup"
 storage_account_name = "udacityp3storageacct"
 container_name       = "udacityp3blob"
 key                  = "terraform.tfstate"
