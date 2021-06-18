@@ -21,7 +21,7 @@ stages:
         steps:
           - task: DownloadSecureFile@1
             inputs:
-              secureFile: '.env'
+              secureFile: .env
           - task: InstallSSHKey@0
             inputs:
               knownHostsEntry: 'known_host'
