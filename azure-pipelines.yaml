@@ -49,9 +49,8 @@ stages:
               backendAzureRmResourceGroupLocation: centralus
               backendAzureRmStorageAccountName: udacityp3storageacct
               backendAzureRmContainerName: udacityp3blobcontain
-              backendAzureRmKey: 'terraform.tfstate' 
-              -lock=false
-
+              backendAzureRmKey: 'terraform.tfstate-lock=false' 
+              
               allowTelemetryCollection: false
           - task: TerraformCLI@0
             inputs:
