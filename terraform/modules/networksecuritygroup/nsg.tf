@@ -11,7 +11,7 @@ resource "azurerm_network_security_group" "nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "5000"
-    source_address_prefix      = var.address_prefix_test
+    source_address_prefixes      = var.address_prefixes_test
     destination_address_prefix = "*"
   }
   security_rule {
