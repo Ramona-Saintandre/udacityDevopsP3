@@ -18,4 +18,4 @@ variable address_space {}
 
 # VM
 variable "admin_username" {}
-variable "password" {}
+
