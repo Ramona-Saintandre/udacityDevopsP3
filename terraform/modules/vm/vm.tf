@@ -19,8 +19,7 @@ resource "azurerm_linux_virtual_machine" "test" {
   admin_username        = var.admin_username
   network_interface_ids = [azurerm_network_interface.test.id]
   admin_ssh_key {
-    username   = var.admin_username
-     //public_key = file("c:/users/thene/.ssh/id_rsa.pub")
+    username   = var.admin_username    
     public_key = file("/home/vsts/work/_temp/id_rsa.pub")
    
   }
