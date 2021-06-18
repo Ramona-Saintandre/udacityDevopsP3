@@ -46,7 +46,7 @@ stages:
               backendAzureRmResourceGroupName: 'udacityP3-terraformsp'
               backendAzureRmResourceGroupLocation: 'centralus'
               backendAzureRmStorageAccountName: 'udacityp3storageacct'
-              backendAzureRmContainerName: 'udacityp3blobcontain'
+              backendAzureRmContainerName: 'udacityp3blob'
               backendAzureRmKey: 'terraform.tfstate' 
               allowTelemetryCollection: false
           
