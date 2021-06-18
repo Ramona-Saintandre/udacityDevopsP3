@@ -145,9 +145,9 @@ crash.log
 .terraform.lock.hcl
 .tfstate
 .tfstate.backup
-terraform.tfvars
+#terraform.tfvars
 .terraform.tfvars
-/.terraform.tfvars
+.terraform.tfvars
 ./terraform.tfvars
 .tfvars
 
