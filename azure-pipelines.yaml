@@ -43,21 +43,13 @@ stages:
               secureVarsFile: '.env'
               backendType: azurerm
               backendServiceArm: UdacityP3_storage
-              ensureBackend: true
               backendAzureRmResourceGroupName: udacityP3-RG
               backendAzureRmResourceGroupLocation: centralus
               backendAzureRmStorageAccountName: udacityp3storageacct
               backendAzureRmContainerName: udacityp3blobcontain
-              backendAzureRmKey: 'terraform.tfstate ' 
+              backendAzureRmKey: 'terraform.tfstate' 
               allowTelemetryCollection: false
-          - task: TerraformCLI@0
-            inputs:
-              command: 'import'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-              environmentServiceName: 'UdacityP3_storage'
-              allowTelemetryCollection: true
-              resourceAddress: 'module.resource_group.azurerm_resource_group.test'
-              resourceId: '/subscriptions/25283872-c0f5-4f2e-9c2a-f19f8e24b3c4/resourceGroups/udacityp3-RG'
+          
          
           - task: TerraformCLI@0
             displayName: 'terraform plan'
