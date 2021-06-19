@@ -23,6 +23,7 @@ az ad sp create-for-rbac -n "UdacityP3-SP" --role Contributor --query "{ client_
 ACCOUNT_KEY=$(az storage account keys list --resource-group UdacityP3-blob --account-name udacityp3storage --query '[0].value' -o tsv)
 # Create blob container
 az storage container create --name tstate --account-name udacityp3storageacct --account-key ceNydw+fKXP9/Y4uDYdgyPAOTms3YUqZUWWOoFSk7ZhAOdc/1mFsO40stDNqTcPs8qXfigcZoDRQ0V/b+xH7Qg== --resource-group UdacityP3-blob
+az storage container create --name tstate --account-name udacityp3storage --account-key ceNydw+fKXP9/Y4uDYdgyPAOTms3YUqZUWWOoFSk7ZhAOdc/1mFsO40stDNqTcPs8qXfigcZoDRQ0V/b+xH7Qg== --resource-group UdacityP3-blob
 echo "storage_account_name: udacityp3storage"
 echo "container_name: tstate"
 echo "access_key: $ACCOUNT_KEY"
