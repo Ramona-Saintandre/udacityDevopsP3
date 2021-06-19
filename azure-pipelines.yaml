@@ -43,10 +43,10 @@ stages:
               secureVarsFile: '.env'
               backendType: azurerm
               backendServiceArm: 'UdacityP3_storage'
-              backendAzureRmResourceGroupName: 'udacityP3-terraformsp'
+              backendAzureRmResourceGroupName: 'udacityP3-CICD'
               backendAzureRmResourceGroupLocation: 'centralus'
-              backendAzureRmStorageAccountName: 'udacityp3storageacct'
-              backendAzureRmContainerName: 'udacityp3blob'
+              backendAzureRmStorageAccountName: 'udacityp3store'
+              backendAzureRmContainerName: 'udacityp3blobcontain'
               backendAzureRmKey: 'terraform.tfstate' 
               allowTelemetryCollection: false
           
