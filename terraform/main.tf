@@ -5,24 +5,21 @@ client_id       = var.client_id
 client_secret   = var.client_secret
 features {}
 }
-resource "azurem_storage_account" "udacityp3store" {
-
-}
 terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "2.63.0"
+      version = "2.47"
     }
   }
   }
 terraform {
 backend "azurerm" {
-resource_group_name  = "udacityP3-CICD"
-storage_account_name = "udacityp3store"
-container_name       = "udacityp3blobcontain"
+resource_group_name  = "udacityP3-RG"
+storage_account_name = "udacityp3storageacct"
+container_name       = "udacityp3blob"
 key                  = "terraform.tfstate"
-access_key           =  "d9M+voCYERuxv3ohJFY8k2LxsfnMK1Iq0Jr99RKH3EjfTsxZ4GfGEoCdXxAra7t9ED0glU35LJ93hV0q3rj6rA==" 
+access_key           =  "LX0Fu318M+M7MGAUekp890iR5hm5BnjDBKVlX455pzohxaHxianNKYzEquxXlZAzmLsx2xtiX7C1z+MIO9g0tg==" 
 }
 }
 module "resource_group" {
@@ -38,7 +35,7 @@ address_space        = var.address_space
 application_type     = var.application_type
 resource_type        = "VNET"
 resource_group       = module.resource_group.resource_group_name
-address_prefixes_test  = var.address_prefixes_test
+address_prefix_test  = var.address_prefix_test
 }
 
 module "nsg-test" {
@@ -48,7 +45,7 @@ application_type = var.application_type
 resource_type    = "NSG"
 resource_group   = module.resource_group.resource_group_name
 subnet_id        = module.network.subnet_id_test
-address_prefixes_test = var.address_prefixes_test
+address_prefix_test = var.address_prefix_test
 }
 module appservice {
 source           = "./modules/appservice"
