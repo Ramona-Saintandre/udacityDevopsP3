@@ -38,7 +38,7 @@ stages:
           - task: TerraformCLI@0
             displayName: 'terraform init'
             inputs:
-              command: init 
+              command: init -upgrade
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               secureVarsFile: '.env'
               backendType: azurerm
