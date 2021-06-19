@@ -5,6 +5,9 @@ client_id       = var.client_id
 client_secret   = var.client_secret
 features {}
 }
+resource "azurem_storage_account" "udacityp3store" {
+
+}
 terraform {
   required_providers {
     azurerm = {
