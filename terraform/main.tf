@@ -17,7 +17,7 @@ terraform {
 backend "azurerm" {
 resource_group_name  = "udacityP3-CICD"
 storage_account_name = "udacityp3store"
-container_name       = "udacityp3blob"
+container_name       = "udacityp3blobcontain"
 key                  = "terraform.tfstate"
 access_key           =  "d9M+voCYERuxv3ohJFY8k2LxsfnMK1Iq0Jr99RKH3EjfTsxZ4GfGEoCdXxAra7t9ED0glU35LJ93hV0q3rj6rA==" 
 }
