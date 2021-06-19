@@ -43,10 +43,10 @@ stages:
               backendType: azurerm
               backendServiceArm: udacityP3_storageacct
               ensureBackend: true
-              backendAzureRmResourceGroupName: udacityP3-RG
+              backendAzureRmResourceGroupName: udacityp3-storeRG
               backendAzureRmResourceGroupLocation: centralus
-              backendAzureRmStorageAccountName: udacityp3storageacct
-              backendAzureRmContainerName: udacityp3blob
+              backendAzureRmStorageAccountName: up3store
+              backendAzureRmContainerName: up3blob
               backendAzureRmKey: 'terraform.tfstate' 
           
          
