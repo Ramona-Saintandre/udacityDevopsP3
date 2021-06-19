@@ -27,11 +27,10 @@ stages:
               knownHostsEntry: 'known_host'
               sshPublicKey: '$(ssh_pub_key)' 
               sshKeySecureFile: 'id_rsa'
-          
           - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
             displayName: 'Use Terraform latest'
             inputs:
-                workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'    
+              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'    
           - task: TerraformInstaller@0
             inputs:
               terraformVersion: latest
@@ -42,12 +41,12 @@ stages:
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               secureVarsFile: '.env'
               backendType: azurerm
-              backendServiceArm: UdacityP3_storage
+              backendServiceArm: udacityP3_storageacct
               ensureBackend: true
               backendAzureRmResourceGroupName: udacityP3-RG
               backendAzureRmResourceGroupLocation: centralus
               backendAzureRmStorageAccountName: udacityp3storageacct
-              backendAzureRmContainerName: udacityp3blobcontain
+              backendAzureRmContainerName: udacityp3blob
               backendAzureRmKey: 'terraform.tfstate' 
           
          
@@ -56,7 +55,7 @@ stages:
             inputs:
               command: plan
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'blobstorage'
+              environmentServiceName: 'udacityP3_storageacct'
               runAzLogin: true
               secureVarsFile: 'terraform.tfvars'
           - task: TerraformCLI@0
@@ -64,7 +63,7 @@ stages:
             inputs:
               command: apply
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'blobstorage'
+              environmentServiceName: 'udacityP3_storageacct'
               runAzLogin: true
               secureVarsFile: 'terraform.tfvars'
               commandOptions: '-auto-approve'
