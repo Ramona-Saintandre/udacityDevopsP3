@@ -31,7 +31,7 @@ stages:
             displayName: 'Install Terraform'
             inputs:
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-              terraformVersion: '0.13.5'
+              terraformVersion: 'Use Terraform latest'
           
           - task: TerraformTaskV1@01
             displayName: 'terraform init'
@@ -66,6 +66,6 @@ stages:
               backendAzureRmStorageAccountName: up3store620
               backendAzureRmContainerName: up3blob620
               backendAzureRmResourceGroupLocation: centralus
-              backendAzureRmKey: 'terraform.tfstate''              
+              backendAzureRmKey: 'terraform.tfstate'
               allowTelemetryCollection: true
         
