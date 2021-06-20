@@ -49,15 +49,15 @@ stages:
               backendAzureRmKey: 'terraform.tfstate'
               allowTelemetryCollection: true
 
-         # - task: TerraformCLI@0
-         #   displayName: 'terraform plan'
-         #   inputs:
-         #     command: plan
-         #     workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-         #     environmentServiceName: 'up3connection620'
-         #     runAzLogin: true
-         #     secureVarsFile: 'terraform.tfvars'
-         #     allowTelemetryCollection: true
+          - task: TerraformCLI@0
+            displayName: 'terraform plan'
+            inputs:
+              command: plan
+              workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+              environmentServiceName: 'up3connection620'
+              runAzLogin: true
+              secureVarsFile: 'terraform.tfvars'
+              allowTelemetryCollection: true
          # - task: TerraformCLI@0
          #   displayName: 'terraform apply'
          #   inputs:
