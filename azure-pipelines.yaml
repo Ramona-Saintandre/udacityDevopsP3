@@ -41,7 +41,7 @@ stages:
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               secureVarsFile: '.env'
               backendType: azurerm
-              backendServiceArm: udacityP3_storageacct
+              backendServiceArm: up3connection
               ensureBackend: true
               backendAzureRmResourceGroupName: udacityp3-storeRG
               backendAzureRmResourceGroupLocation: centralus
@@ -55,7 +55,7 @@ stages:
             inputs:
               command: plan
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'udacityP3_storageacct'
+              environmentServiceName: 'up3connection'
               runAzLogin: true
               secureVarsFile: 'terraform.tfvars'
           - task: TerraformCLI@0
@@ -63,7 +63,7 @@ stages:
             inputs:
               command: apply
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'udacityP3_storageacct'
+              environmentServiceName: 'up3connection'
               runAzLogin: true
               secureVarsFile: 'terraform.tfvars'
               commandOptions: '-auto-approve'
