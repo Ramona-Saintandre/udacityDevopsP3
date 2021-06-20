@@ -58,18 +58,19 @@ stages:
               runAzLogin: true
               secureVarsFile: 'terraform.tfvars'
               allowTelemetryCollection: true
-         # - task: TerraformCLI@0
-         #   displayName: 'terraform apply'
-         #   inputs:
-         #     command: apply
-         #     workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-         #     environmentServiceName: 'up3connection620'
-         #     runAzLogin: true
-         #     backendServiceArm: up3connection620
-         #     backendAzureRmResourceGroupName: up3-storeRG360
-         #     backendAzureRmStorageAccountName: up3store620
-         #     backendAzureRmContainerName: up3blob620
-         #     backendAzureRmResourceGroupLocation: centralus
-         #     backendAzureRmKey: 'terraform.tfstate'
-         #     allowTelemetryCollection: true
+
+          - task: TerraformCLI@0
+            displayName: 'terraform apply'
+            inputs:
+              command: apply
+              workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+              environmentServiceName: 'up3connection620'
+              runAzLogin: true
+              backendServiceArm: up3connection620
+              backendAzureRmResourceGroupName: up3-storeRG360
+              backendAzureRmStorageAccountName: up3store620
+              backendAzureRmContainerName: up3blob620
+              backendAzureRmResourceGroupLocation: centralus
+              backendAzureRmKey: 'terraform.tfstate'
+              allowTelemetryCollection: true
         
