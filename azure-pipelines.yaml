@@ -31,9 +31,9 @@ stages:
             displayName: 'Install Terraform'
             inputs:
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-              terraformVersion: 0.13.4
+              terraformVersion: '0.13.4'
           
-          - task: TerraformTaskV1@0
+          - task: TerraformTaskV1@2
             displayName: 'terraform init'
             inputs:
               provider: 'azurerm'
