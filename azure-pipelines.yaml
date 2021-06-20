@@ -31,7 +31,7 @@ stages:
             displayName: 'Use Terraform latest'
             inputs:
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-          -
+          
           - task: TerraformCLI@0
             displayName: 'terraform init'
             inputs:
