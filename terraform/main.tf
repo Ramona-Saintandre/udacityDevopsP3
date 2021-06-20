@@ -15,11 +15,11 @@ terraform {
   }
 terraform {
 backend "azurerm" {
-resource_group_name  = "udacityp3-storeRG"
-storage_account_name = "up3store"
-container_name       = "up3blob"
+resource_group_name  = "up3-storeRG360"
+storage_account_name = "up3store620"
+container_name       = "up3blob620"
 key                  = "terraform.tfstate"
-access_key           =  "xlghdT72mrlFcB0n+6pwILYkQVgJUQQ00MpWY0ePK3bgCfniyDKwY3slF9F+rhlJ8tXvUcjU+wDPnsNE0cy8TA==" 
+access_key           =  "uX4nWv8HPEKTly5PdC1NGHQrKHTgL+j3ISa1dqi9xX2dZ7lilCrAQK1FgM/WHed0gpDQxVVDrkoe6Ki9Wy8x5Q==" 
 }
 }
 module "resource_group" {

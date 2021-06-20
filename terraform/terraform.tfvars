@@ -8,7 +8,7 @@ tenant_id = "38be56ef-db1d-447d-8bfb-0aa8fbbbf271"
 
 # Resource Group/Location
 location         = "centralus"
-resource_group   = "udacityp3-storeRG"
+resource_group   = "up3-storeRG360"
 application_type = "appService"
 
 # Network
