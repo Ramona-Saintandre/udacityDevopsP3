@@ -28,9 +28,10 @@ stages:
               sshPublicKey: '$(ssh_pub_key)' 
               sshKeySecureFile: 'id_rsa'
           - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
-            displayName: 'Use Terraform latest'
+            displayName: 'Install Terraform'
             inputs:
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+              terraformVersion: '0.13.5'
           
           - task: TerraformCLI@0
             displayName: 'terraform init'
@@ -42,7 +43,6 @@ stages:
               backendServiceArm: up3connection
               ensureBackend: true
               backendAzureRmResourceGroupName: udacityp3-storeRG
-              backendAzureRmResourceGroupLocation: centralus
               backendAzureRmStorageAccountName: up3store
               backendAzureRmContainerName: up3blob
               backendAzureRmKey: 'terraform.tfstate' 
@@ -56,6 +56,7 @@ stages:
               environmentServiceName: 'up3connection'
               runAzLogin: true
               secureVarsFile: 'terraform.tfvars'
+              allowTelemetryCollection: true
           - task: TerraformCLI@0
             displayName: 'terraform apply'
             inputs:
@@ -63,7 +64,10 @@ stages:
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
               environmentServiceName: 'up3connection'
               runAzLogin: true
-              secureVarsFile: 'terraform.tfvars'
-              commandOptions: '-auto-approve'
+              backendAzureRmResourceGroupName: udacityp3-storeRG
+              backendAzureRmStorageAccountName: up3store
+              backendAzureRmContainerName: up3blob
+              backendAzureRmKey: 'terraform.tfstate'
+              secureVarsFile: 'terraform.tfvars'              
               allowTelemetryCollection: true
         
