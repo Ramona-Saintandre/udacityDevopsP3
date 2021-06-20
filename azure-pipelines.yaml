@@ -30,41 +30,42 @@ stages:
           - task: TerraformInstaller@0
             displayName: "Install Terraform"
             inputs:
-              terraformVersion: "0.14.11"
+                terraformVersion: 'latest'
           
-          - task: TerraformTaskV1@0
-            displayName: 'terraform init'
-            inputs:
-              provider: 'azurerm'
-              command: 'init'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-              backendServiceArm: 'SPProject3-Terraform'
-              backendAzureRmResourceGroupName: 'project3-tstate'
-              backendAzureRmStorageAccountName: 'project3tstate'
-              backendAzureRmKey: 'terraform.tfstate'
-              backendAzureRmContainerName: 'tstate'
+          
+          #- task: TerraFormTaskV1@0
+          #  displayName: 'terraform init'
+          #  inputs:
+          #    provider: 'azurerm'
+          #    command: 'init'
+          #    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+          #    backendServiceArm: 'SPProject3-Terraform'
+          #    backendAzureRmResourceGroupName: 'project3-tstate'
+          #    backendAzureRmStorageAccountName: 'project3tstate'
+          #    backendAzureRmKey: 'terraform.tfstate'
+          #    backendAzureRmContainerName: 'tstate'
          
-          - task: TerraformCLI@0
-            displayName: 'terraform plan'
-            inputs:
-              command: plan
-              workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'up3connection620'
-              runAzLogin: true
-              secureVarsFile: 'terraform.tfvars'
-              allowTelemetryCollection: true
-          - task: TerraformCLI@0
-            displayName: 'terraform apply'
-            inputs:
-              command: apply
-              workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'up3connection620'
-              runAzLogin: true
-              backendServiceArm: up3connection620
-              backendAzureRmResourceGroupName: up3-storeRG360
-              backendAzureRmStorageAccountName: up3store620
-              backendAzureRmContainerName: up3blob620
-              backendAzureRmResourceGroupLocation: centralus
-              backendAzureRmKey: 'terraform.tfstate'
-              allowTelemetryCollection: true
+         # - task: TerraformCLI@0
+         #   displayName: 'terraform plan'
+         #   inputs:
+         #     command: plan
+         #     workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+         #     environmentServiceName: 'up3connection620'
+         #     runAzLogin: true
+         #     secureVarsFile: 'terraform.tfvars'
+         #     allowTelemetryCollection: true
+         # - task: TerraformCLI@0
+         #   displayName: 'terraform apply'
+         #   inputs:
+         #     command: apply
+         #     workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+         #     environmentServiceName: 'up3connection620'
+         #     runAzLogin: true
+         #     backendServiceArm: up3connection620
+         #     backendAzureRmResourceGroupName: up3-storeRG360
+         #     backendAzureRmStorageAccountName: up3store620
+         #     backendAzureRmContainerName: up3blob620
+         #     backendAzureRmResourceGroupLocation: centralus
+         #     backendAzureRmKey: 'terraform.tfstate'
+         #     allowTelemetryCollection: true
         
