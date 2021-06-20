@@ -45,6 +45,7 @@ stages:
               backendAzureRmResourceGroupName: udacityp3-storeRG
               backendAzureRmStorageAccountName: up3store
               backendAzureRmContainerName: up3blob
+              backendAzureRmResourceGroupLocation: centralus
               backendAzureRmKey: 'terraform.tfstate' 
           
          
@@ -68,6 +69,7 @@ stages:
               backendAzureRmStorageAccountName: up3store
               backendAzureRmContainerName: up3blob
               backendAzureRmKey: 'terraform.tfstate'
+              backendAzureRmResourceGroupLocation: centralus
               secureVarsFile: 'terraform.tfvars'              
               allowTelemetryCollection: true
         
