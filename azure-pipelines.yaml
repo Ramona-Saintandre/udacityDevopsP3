@@ -36,11 +36,12 @@ stages:
           - task: TerraformTaskV1@0
             displayName: 'terraform init'
             inputs:
-              command: init 
-              workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+              provider: 'azurerm'
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
               secureVarsFile: '.env'
               backendType: azurerm
-              backendServiceArm: up3connection              
+              backendServiceArm: up3connection
               backendAzureRmResourceGroupName: udacityp3-storeRG
               backendAzureRmStorageAccountName: up3store
               backendAzureRmContainerName: up3blob
