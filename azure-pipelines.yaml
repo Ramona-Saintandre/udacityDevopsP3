@@ -41,7 +41,7 @@ stages:
               secureVarsFile: '.env'
               backendType: azurerm
               backendServiceArm: up3connection
-              ensureBackend: true
+              ensureBackend: false
               backendAzureRmResourceGroupName: udacityp3-storeRG
               backendAzureRmStorageAccountName: up3store
               backendAzureRmContainerName: up3blob
