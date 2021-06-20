@@ -33,28 +33,24 @@ stages:
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
               terraformVersion: '0.13.5'
           
-          - task: TerraformTaskV1@0
+          - task: TerraformTaskV1@01
             displayName: 'terraform init'
             inputs:
               provider: 'azurerm'
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-              secureVarsFile: '.env'
-              backendType: azurerm
-              backendServiceArm: up3connection
-              backendAzureRmResourceGroupName: udacityp3-storeRG
-              backendAzureRmStorageAccountName: up3store
-              backendAzureRmContainerName: up3blob
-              backendAzureRmResourceGroupLocation: centralus
-              backendAzureRmKey: 'terraform.tfstate' 
-          
+              backendServiceArm: 'SPProject3-Terraform'
+              backendAzureRmResourceGroupName: 'project3-tstate'
+              backendAzureRmStorageAccountName: 'project3tstate'
+              backendAzureRmKey: 'terraform.tfstate'
+              backendAzureRmContainerName: 'tstate'
          
           - task: TerraformCLI@0
             displayName: 'terraform plan'
             inputs:
               command: plan
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'up3connection'
+              environmentServiceName: 'up3connection620'
               runAzLogin: true
               secureVarsFile: 'terraform.tfvars'
               allowTelemetryCollection: true
@@ -63,13 +59,13 @@ stages:
             inputs:
               command: apply
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'up3connection'
+              environmentServiceName: 'up3connection620'
               runAzLogin: true
-              backendAzureRmResourceGroupName: udacityp3-storeRG
-              backendAzureRmStorageAccountName: up3store
-              backendAzureRmContainerName: up3blob
-              backendAzureRmKey: 'terraform.tfstate'
+              backendServiceArm: up3connection620
+              backendAzureRmResourceGroupName: up3-storeRG360
+              backendAzureRmStorageAccountName: up3store620
+              backendAzureRmContainerName: up3blob620
               backendAzureRmResourceGroupLocation: centralus
-              secureVarsFile: 'terraform.tfvars'              
+              backendAzureRmKey: 'terraform.tfstate''              
               allowTelemetryCollection: true
         
