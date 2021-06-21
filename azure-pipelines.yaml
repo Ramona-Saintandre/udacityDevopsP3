@@ -113,7 +113,7 @@ stages:
                       ConnectionType: 'AzureRM'
                       azureSubscription: 'up3connection620'
                       appType: 'webAppLinux'
-                      WebAppName: 'up3-testing-appservices'
+                      WebAppName: 'test-appservice-proj3'
                       deployToSlotOrASE: true
                       ResourceGroupName: 'up3-storeRG360'
                       SlotName: 'production'
