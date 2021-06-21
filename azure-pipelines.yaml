@@ -83,3 +83,13 @@ stages:
           - publish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip'
             displayName: 'Upload Package'
             artifact: drop-fakerestapi
+          - task: ArchiveFiles@2
+            displayName: 'Archive Automated Tests'
+            inputs:
+              rootFolderOrFile: 'automatedtesting' 
+              includeRootFolder: false
+              archiveType: 'zip'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-automatedtests.zip' 
+          - publish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-automatedtests.zip'
+            displayName: 'Upload Test Package'
+            artifact: drop-automatedtests
