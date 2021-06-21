@@ -111,7 +111,7 @@ stages:
                   - task: AzureRmWebAppDeployment@4
                     inputs:
                       ConnectionType: 'AzureRM'
-                      azureSubscription: 'Udacity Devops P3'
+                      azureSubscription: 'up3connection620'
                       appType: 'webAppLinux'
                       WebAppName: 'up3-testing-appservices'
                       deployToSlotOrASE: true
