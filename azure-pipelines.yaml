@@ -73,5 +73,70 @@ stages:
               backendAzureRmResourceGroupLocation: centralus
               backendAzureRmKey: 'terraform.tfstate'
               allowTelemetryCollection: true
-              
+        
+#------FakerAPI
+          - task: ArchiveFiles@2
+            displayName: 'Archive FakeRestAPI'
+            inputs:
+              rootFolderOrFile: 'automatedtesting/jmeter/fakerestapi'
+              includeRootFolder: false
+              archiveType: 'zip'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip'
+          - publish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip'
+            displayName: 'Upload fakerrestapi Package'
+            artifact: drop-fakerestapi
+          - task: ArchiveFiles@2
+            displayName: 'Archive Automation Tests'
+            inputs:
+              rootFolderOrFile: 'automationTesting' 
+              includeRootFolder: false
+              archiveType: 'zip'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-automatedtests.zip' 
+          - publish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-automatedtests.zip'
+            displayName: 'Upload Test Package'
+            artifact: drop-automatedtests
+  - stage:
+    jobs:
+        - deployment: udacityp3testvm
+          displayName: Deploy VM
+          environment:
+            name: 'TEST'
+            resourceType: VirtualMachine
+          pool:
+            vmImage: 'Ubuntu-latest'
+          strategy:
+            runOnce:
+              deploy:
+                 steps:
+                  - task: AzureRmWebAppDeployment@4
+                    inputs:
+                      ConnectionType: 'AzureRM'
+                      azureSubscription: 'Udacity Devops P3'
+                      appType: 'webAppLinux'
+                      WebAppName: 'up3-testing-appservices'
+                      deployToSlotOrASE: true
+                      ResourceGroupName: 'up3-storeRG360'
+                      SlotName: 'production'
+                      packageForLinux: '$(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip'
+
+                  - task: Bash@3
+                    inputs:
+                      targetType: 'inline'
+                      script: |
+                        # Write your commands here
+                
+                        echo 'FakeRestAPI Running'
+
+  #- stage: postDeployment
+   # displayName: 'Post-Deployment'
+    #pool:
+    #  vmImage: 'Ubuntu-latest'
+    #  jobs:
+     # - job: runnewman            
+
+                #------postman/newman
+                #------selenium
+                #-----Log Anaylytics
+                #------jMeter
+                #------Destroy 
           
