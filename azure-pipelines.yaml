@@ -27,49 +27,59 @@ stages:
               knownHostsEntry: 'known_host'
               sshPublicKey: '$(ssh_pub_key)' 
               sshKeySecureFile: 'id_rsa'
-          - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
-            displayName: 'Install Terraform'
+          - task: TerraformInstaller@0
+            displayName: "Install Terraform"
             inputs:
-              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-              terraformVersion: '0.13.5'
+                terraformVersion: 'latest'
+          - task: TerraformCLI@0
+            displayName: 'check terraform version'
+            inputs:
+              command: version
           
-          - task: TerraformTaskV1@0
+          - task: TerraformCLI@0
             displayName: 'terraform init'
-            inputs:
-              provider: 'azurerm'
+            inputs:              
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-              secureVarsFile: '.env'
-              backendType: azurerm
-              backendServiceArm: up3connection
-              backendAzureRmResourceGroupName: udacityp3-storeRG
-              backendAzureRmStorageAccountName: up3store
-              backendAzureRmContainerName: up3blob
+              backendServiceArm: up3connection620
+              backendAzureRmResourceGroupName: up3-storeRG360
+              backendAzureRmStorageAccountName: up3store620
+              backendAzureRmContainerName: up3blob620
               backendAzureRmResourceGroupLocation: centralus
-              backendAzureRmKey: 'terraform.tfstate' 
-          
-         
+              backendAzureRmKey: 'terraform.tfstate'
+              allowTelemetryCollection: true
+
           - task: TerraformCLI@0
             displayName: 'terraform plan'
             inputs:
               command: plan
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'up3connection'
+              environmentServiceName: 'up3connection620'
               runAzLogin: true
               secureVarsFile: 'terraform.tfvars'
               allowTelemetryCollection: true
+
           - task: TerraformCLI@0
             displayName: 'terraform apply'
             inputs:
               command: apply
               workingDirectory: $(System.DefaultWorkingDirectory)/terraform
-              environmentServiceName: 'up3connection'
+              environmentServiceName: 'up3connection620'
               runAzLogin: true
-              backendAzureRmResourceGroupName: udacityp3-storeRG
-              backendAzureRmStorageAccountName: up3store
-              backendAzureRmContainerName: up3blob
-              backendAzureRmKey: 'terraform.tfstate'
+              backendServiceArm: up3connection620
+              backendAzureRmResourceGroupName: up3-storeRG360
+              backendAzureRmStorageAccountName: up3store620
+              backendAzureRmContainerName: up3blob620
               backendAzureRmResourceGroupLocation: centralus
-              secureVarsFile: 'terraform.tfvars'              
+              backendAzureRmKey: 'terraform.tfstate'
               allowTelemetryCollection: true
-        
+          - task: ArchiveFiles@2
+            displayName: 'Archive FakeRestAPI'
+            inputs:
+              rootFolderOrFile: 'automatedtesting/jmeter/fakerestapi'
+              includeRootFolder: false
+              archiveType: 'zip'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip'
+          - publish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip'
+            displayName: 'Upload Package'
+            artifact: drop-fakerestapi
