@@ -73,6 +73,8 @@ stages:
               backendAzureRmResourceGroupLocation: centralus
               backendAzureRmKey: 'terraform.tfstate'
               allowTelemetryCollection: true
+              
+          #---------fakerAPI--------
           - task: ArchiveFiles@2
             displayName: 'Archive FakeRestAPI'
             inputs:
@@ -93,3 +95,40 @@ stages:
           - publish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-automatedtests.zip'
             displayName: 'Upload Test Package'
             artifact: drop-automatedtests
+          - stage:
+            jobs:
+            - deployment: TEST
+              displayName: Deploy VM
+              environment:
+              name: 'udacityp3-test-vm'
+              resourceType: VirtualMachine
+              pool:
+              vmImage: 'Ubuntu-latest'
+    
+              strategy:
+              runOnce:
+              deploy:
+              steps:
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: 'Udacity Devops P3'
+              appType: 'webAppLinux'
+              WebAppName: 'up3-test-appservices'
+              deployToSlotOrASE: true
+              ResourceGroupName: 'up3-storeRG360'
+              SlotName: 'production'
+              packageForLinux: '$(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip'
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Write your commands here
+                
+                echo 'FakeRestAPI Running'
+
+                #------postman/newman
+                #------selenium
+                #-----Log Anaylytics
+                #------jMeter
+                #------Destroy 
