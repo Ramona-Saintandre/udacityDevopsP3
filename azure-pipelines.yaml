@@ -97,7 +97,7 @@ stages:
             artifact: drop-automatedtests
   - stage:
     jobs:
-        - deployment: TEST
+        - deployment: udacityp3-test-vm
           displayName: Deploy VM
           environment:
             name: 'udacityp3-test-vm'
@@ -111,11 +111,11 @@ stages:
                   - task: AzureRmWebAppDeployment@4
                     inputs:
                       ConnectionType: 'AzureRM'
-                      azureSubscription: 'SPProject3'
+                      azureSubscription: 'Udacity Devops P3'
                       appType: 'webAppLinux'
-                      WebAppName: 'test-appservice-proj3'
+                      WebAppName: 'up3-testing-appservices'
                       deployToSlotOrASE: true
-                      ResourceGroupName: 'azuredevopsproj3'
+                      ResourceGroupName: 'up3-storeRG360'
                       SlotName: 'production'
                       packageForLinux: '$(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip'
 
