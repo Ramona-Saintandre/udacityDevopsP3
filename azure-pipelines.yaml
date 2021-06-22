@@ -27,10 +27,15 @@ stages:
               knownHostsEntry: 'known_host'
               sshPublicKey: '$(ssh_pub_key)' 
               sshKeySecureFile: 'id_rsa'
-          - task: TerraformInstaller@0
-            displayName: "Install Terraform"
+          - task: InstallSSHKey@0
             inputs:
-                terraformVersion: 'latest'
+              knownHostsEntry: 'known_hosts'
+              sshPublicKey: '$(ssh_pub_key)'
+              sshKeySecureFile: 'id_rsa'
+          - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
+            displayName: 'Use Terraform latest'
+            inputs:
+              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
           - task: TerraformCLI@0
             displayName: 'check terraform version'
             inputs:
