@@ -127,12 +127,12 @@ stages:
                 
                         echo 'FakeRestAPI Running'
 
-  #- stage: postDeployment
-   # displayName: 'Post-Deployment'
-    #pool:
-    #  vmImage: 'Ubuntu-latest'
-    #  jobs:
-     # - job: runnewman            
+  - stage: postDeployment
+    displayName: 'Post-Deployment'
+    pool:
+      vmImage: 'Ubuntu-latest'
+      jobs:
+      - job: runnewman            
 
                 #------postman/newman
                 #------selenium
