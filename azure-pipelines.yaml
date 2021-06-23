@@ -136,8 +136,9 @@ stages:
     displayName: 'Post-Deployment'
     pool:
       vmImage: 'Ubuntu-latest'
-      jobs:
-      - job: runnewman            
+    jobs:
+    - job: runnewman
+      #-----------------------------------------------Running Postman/Newman Tests-------------------------------
       steps:
         - task: Bash@3
           displayName: 'Run Postman/Newman Tests'
