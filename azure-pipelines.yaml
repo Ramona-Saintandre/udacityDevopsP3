@@ -158,8 +158,9 @@ stages:
             testResultsFormat: 'JUnit'
             testRunTitle: Data and Regression Tests
             testResultsFiles: '**/newman-*.xml'
-                #------postman/newman
+                
                 #------selenium
+                
                 #-----Log Anaylytics
                 #------jMeter
                 #------Destroy 
