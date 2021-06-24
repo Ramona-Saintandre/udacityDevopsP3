@@ -148,9 +148,9 @@ stages:
               sudo npm install -g newman reporter
               echo 'Starting Tests...'
               echo 'Running Regression Test'
-              newman run automatedtesting/postman/RegressionTest.postman_collection.json  --delay-request 15000 --reporters cli,junit --suppress-exit-code
+              newman run automatedtesting/postman/UdacityP3 Regression test.postman_collection.json  --delay-request 15000 --reporters cli,junit --suppress-exit-code
               echo 'Running Data Validation Test'
-              newman run automatedtesting/postman/DataValidation.postman_collection.json  --delay-request 12000 --reporters cli,junit --suppress-exit-code
+              newman run automatedtesting/postman/Udacity P3 Validation Test.postman_collection.json  --delay-request 12000 --reporters cli,junit --suppress-exit-code
         - task: PublishTestResults@2
           displayName: 'Publish Postman Newman Results **/newman-*.xml'
           condition: always()
