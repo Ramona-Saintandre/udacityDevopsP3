@@ -317,7 +317,7 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="APP_SERVICE_URL" elementType="Argument">
               <stringProp name="Argument.name">APP_SERVICE_URL</stringProp>
-              <stringProp name="Argument.value">ghawanni-udacity-final-project-appservice.azurewebsites.net</stringProp>
+              <stringProp name="Argument.value">test-appservice-udacityp3.azurewebsites.net</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="BOOKS_API" elementType="Argument">
@@ -327,7 +327,7 @@
             </elementProp>
             <elementProp name="CSV_FILE_PATH" elementType="Argument">
               <stringProp name="Argument.name">CSV_FILE_PATH</stringProp>
-              <stringProp name="Argument.value">/Users/mohammedghawanni/Udacity/Azure-DevOps-Engineer-Nanodegree/Final Project/Project Starter Resources/automatedtesting/jmeter/up3books.csv</stringProp>
+              <stringProp name="Argument.value">e:/udacityDevops3/automatedtesting/jmeter/up3books.csv</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="POST_AUTHOR" elementType="Argument">
@@ -544,7 +544,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">/Users/mohammedghawanni/Udacity/Azure-DevOps-Engineer-Nanodegree/Final Project/Project Starter Resources/automatedtesting/jmeter/results-report.csv</stringProp>
+          <stringProp name="filename">e:/udacityDevops3/automatedtesting/jmeter/results-report.csv</stringProp>
           <boolProp name="ResultCollector.success_only_logging">true</boolProp>
         </ResultCollector>
         <hashTree/>
