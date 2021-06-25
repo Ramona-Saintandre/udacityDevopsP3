@@ -184,7 +184,7 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-           mkdir up3stresstest-html-report
+           sudo mkdir up3stresstest-html-report
             rm -rf *.csv up3stress-test-html-report/*
             echo "Running JMeter tests Now"
             apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/stresstest.jmx \
@@ -194,7 +194,7 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-           mkdir up3endurancetest-html-report
+           sudo mkdir up3endurancetest-html-report
             rm -rf *.csv up3endurancetest-html-report/*
             apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/endurancetest.jmx \
             -l EnduranceTest_Results.csv -e -f -o up3endurancetest-html-report/
