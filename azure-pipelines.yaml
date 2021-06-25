@@ -172,7 +172,7 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            sudo apt-get install openjdk-11-jre-headless -y
+           apt-get install openjdk-11-jre-headless -y
             java -version
             wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.2.1.tgz -O jmeter.tgz
             tar xzvf jmeter.tgz
@@ -184,19 +184,19 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            sudo mkdir up3stresstest-html-report
+           mkdir up3stresstest-html-report
             rm -rf *.csv up3stress-test-html-report/*
             echo "Running JMeter tests Now"
-            apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/up3empstress.jmx \
+            apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/up3stress.jmx \
             -l StressTest_Results.csv -e -f -o up3stresstest-html-report/
       - task: Bash@3
         displayName: UP3 JMeter Endurance Test
         inputs:
           targetType: 'inline'
           script: |
-            sudo mkdir up3endurancetest-html-report
+           mkdir up3endurancetest-html-report
             rm -rf *.csv up3endurancetest-html-report/*
-            apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/up3empendurance.jmx \
+            apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/up3endurance.jmx \
             -l EnduranceTest_Results.csv -e -f -o up3endurancetest-html-report/
                 #------Destroy 
           
