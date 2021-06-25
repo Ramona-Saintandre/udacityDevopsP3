@@ -167,6 +167,7 @@ stages:
     - job: JMeterTest
       displayName: Test JMeter
       steps:
+      - checkout: self
       - task: Bash@3
         displayName: Install JMeter
         inputs:
