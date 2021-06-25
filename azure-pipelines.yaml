@@ -189,9 +189,9 @@ stages:
             rm -rf *.csv up3stress-test-html-report/*
             echo "Running JMeter tests Now"
              apache-jmeter-5.4.1/bin/jmeter -n -t automatedtesting/jmeter/stresstest.jmx \
-                                     -l log/jmeter/stresstest-result.csv \
-                                     -e -f -o log/jmeter/stresstest-report.html \
-                                     -j log/jmeter/jmeter-stresstest.log
+                                   #  -l log/jmeter/stresstest-result.csv \
+                                   #  -e -f -o log/jmeter/stresstest-report.html \
+                                   #  -j log/jmeter/jmeter-stresstest.log
       - task: Bash@3
         displayName: UP3 JMeter Endurance Test
         inputs:
@@ -200,9 +200,9 @@ stages:
            sudo mkdir up3endurancetest-html-report
             rm -rf *.csv up3endurancetest-html-report/*
            apache-jmeter-5.4.1/bin/jmeter -n -t automatedtesting/jmeter/endurancetest.jmx \
-                                     -l log/jmeter/endurancetest-result.csv \
-                                     -e -f -o log/jmeter/endurancetest-report.html \
-                                     -j log/jmeter/jmeter-endurance-test.log
+                                    # -l log/jmeter/endurancetest-result.csv \
+                                    # -e -f -o log/jmeter/endurancetest-report.html \
+                                    # -j log/jmeter/jmeter-endurance-test.log
                 #------Destroy 
       - task: ArchiveFiles@2
         displayName: Archive JMeter stress test HTML report
