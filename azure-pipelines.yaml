@@ -165,73 +165,36 @@ stages:
 
                 #------jMeter
     - job: JMeterTest
-      displayName: JMeterTesting
+      displayName: Test JMeter
       steps:
       - task: Bash@3
         displayName: Install JMeter
         inputs:
           targetType: 'inline'
           script: |
-           apt-get install openjdk-11-jre-headless -y
+            sudo apt-get install openjdk-11-jre-headless -y
             java -version
             wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.2.1.tgz -O jmeter.tgz
             tar xzvf jmeter.tgz
             apache-jmeter-5.2.1/bin/jmeter --version
-            mkdir -p log/jmeter
             pwd
             ls -la
       - task: Bash@3
-        displayName: UP3 JMeter Stress Test
+        displayName: JMeter Stress Test
         inputs:
           targetType: 'inline'
           script: |
-           sudo mkdir up3stresstest-html-report
-            rm -rf *.csv up3stress-test-html-report/*
+            sudo mkdir stresstest-html-report
+            rm -rf *.csv stress-test-html-report/*
             echo "Running JMeter tests Now"
-             apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/stresstest.jmx \
-                                   #  -l log/jmeter/stresstest-result.csv \
-                                   #  -e -f -o log/jmeter/stresstest-report.html \
-                                   #  -j log/jmeter/jmeter-stresstest.log
+            apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/stresstest.jmx \
+            -l StressTest_Results.csv -e -f -o stresstest-html-report/
       - task: Bash@3
-        displayName: UP3 JMeter Endurance Test
+        displayName: JMeter Endurance Test
         inputs:
           targetType: 'inline'
           script: |
-           sudo mkdir up3endurancetest-html-report
-            rm -rf *.csv up3endurancetest-html-report/*
-           apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/endurancetest.jmx \
-                                    # -l log/jmeter/endurancetest-result.csv \
-                                    # -e -f -o log/jmeter/endurancetest-report.html \
-                                    # -j log/jmeter/jmeter-endurance-test.log
-                #------Destroy 
-      - task: ArchiveFiles@2
-        displayName: Archive JMeter stress test HTML report
-        inputs:
-          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/log/jmeter/stresstest-report.html'
-          includeRootFolder: false
-          archiveType: 'zip'
-          archiveFile: '$(System.DefaultWorkingDirectory)/log/jmeter/stresstest-html-report-$(Build.BuildId).zip'
-          verbose: true
-      - task: ArchiveFiles@2
-        displayName: Archive JMeter endurance test HTML report
-        inputs:
-          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/log/jmeter/endurancetest-report.html'
-          includeRootFolder: false
-          archiveType: 'zip'
-          archiveFile: '$(System.DefaultWorkingDirectory)/log/jmeter/endurancetesthtml-report-$(Build.BuildId).zip'
-          verbose: true
-      - task: Bash@3
-        displayName: Clean Up Tests
-        inputs:
-          targetType: 'inline'
-          script: |
-            rm -rf log/jmeter/stresstest-report.html
-            rm -rf log/jmeter/endurancetest-report.html
-            cd log/jmeter
-            pwd
-            ls -la
-      - task: PublishPipelineArtifact@1
-        displayName: Publish JMeter logs
-        inputs:
-          targetPath: '$(System.DefaultWorkingDirectory)/log/jmeter'
-          artifactName: 'drop-jmeter-logs'    
+            sudo mkdir endurancetest-html-report
+            rm -rf *.csv endurancetest-html-report/*
+            apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/endurancetest.jmx \
+            -l EnduranceTest_Results.csv -e -f -o endurancetest-html-report/
