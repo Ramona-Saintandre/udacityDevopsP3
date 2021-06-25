@@ -185,16 +185,20 @@ stages:
           targetType: 'inline'
           script: |
             sudo mkdir stresstest-html-report
+            ls -la
             rm -rf *.csv stress-test-html-report/*
             echo "Running JMeter tests Now"
             apache-jmeter-5.4.1/bin/jmeter -n -t automatedtesting/jmeter/stresstest.jmx \
             -l StressTest_Results.csv -e -f -o stresstest-html-report/
+            ls -la
       - task: Bash@3
         displayName: JMeter Endurance Test
         inputs:
           targetType: 'inline'
           script: |
             sudo mkdir endurancetest-html-report
+            ls -la 
             rm -rf *.csv endurancetest-html-report/*
             apache-jmeter-5.4.1/bin/jmeter -n -t automatedtesting/jmeter/endurancetest.jmx \
             -l EnduranceTest_Results.csv -e -f -o endurancetest-html-report/
+            ls -la
