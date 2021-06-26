@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1624683726172,4357,GET All Activities,200,OK,Starter 1-4,text,true,,3109,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,4355,0,428
+1624683725772,4757,GET All Activities,200,OK,Starter 1-2,text,true,,3109,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,4757,0,828
+1624683726371,4158,GET All Activities,200,OK,Starter 1-5,text,true,,3109,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,4156,0,229
+1624683725642,4886,GET All Activities,200,OK,Starter 1-1,text,true,,3109,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,4884,0,957
+1624683725972,4560,GET All Activities,200,OK,Starter 1-3,text,true,,3109,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,4560,0,628
