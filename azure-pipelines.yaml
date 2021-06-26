@@ -191,9 +191,7 @@ stages:
             echo "Running JMeter tests Now"
             apache-jmeter-5.4.1/bin/jmeter -n -t automatedtesting/jmeter/stresstest.jmx \
             -l StressTest_Results.csv -e -f -o stresstest-html-report/
-            - task: publishhtmlreport@1
-              inputs:
-                htmlType: 'genericHTML'
+           
             ls -la
       - task: Bash@3
         displayName: JMeter Endurance Test
@@ -205,7 +203,5 @@ stages:
             rm -rf *.csv endurancetest-html-report/*
             apache-jmeter-5.4.1/bin/jmeter -n -t automatedtesting/jmeter/endurancetest.jmx \
             -l EnduranceTest_Results.csv -e -f -o endurancetest-html-report/
-            - task: publishhtmlreport@1
-              inputs:
-                htmlType: 'genericHTML'
+          
             ls -la
