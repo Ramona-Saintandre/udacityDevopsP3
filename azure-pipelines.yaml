@@ -160,70 +160,38 @@ stages:
             testResultsFiles: '**/newman-*.xml'
                 
                 #------selenium
-        - task: ArchiveFiles@2
-          displayName: "Archive Selenium"
-          inputs:
-              rootFolderOrFile: "$(System.DefaultWorkingDirectory)/automatedtesting/selenium/login.py"
-              includeRootFolder: false
-              archiveType: "zip"
-              archiveFile: "$(Build.ArtifactStagingDirectory)/selenium-$(Build.BuildId).zip"
-              verbose: true
-
-        - task: PublishPipelineArtifact@1
-          displayName: "Publish Selenium"
-          inputs:
-              targetPath: "$(Build.ArtifactStagingDirectory)/selenium-$(Build.BuildId).zip"
-              artifactName: "selenium"
-
-        - task: Bash@3
-          displayName: "Configure Selenium"
-          inputs:
-                    targetType: "inline"
-                    script: |
-                      #!/bin/bash
-                      export LC_ALL=C
-                      sudo apt-get install -y software-properties-common
-                      sudo apt-add-repository -y universe
-                      sudo apt-add-repository -y ppa:deadsnakes/ppa
-                      sudo apt-get -y update
-                      sudo apt-get install -y python3.8 python3.8-distutils python3-pip unzip chromium-browser chromium-chromedriver
-                      sudo rm /usr/bin/python3
-                      sudo ln -s /usr/bin/python3.8 /usr/bin/python3
-                      sudo apt remove -y python3-pip
-                      curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-                      sudo python3 get-pip.py
-                      sudo pip3 install --upgrade pip
-                      sudo pip3 install selenium      
-    - deployment: test_selenium
-      displayName: "Deploy and run Selenium tests"
-      environment:
-        name: "Selenium Test"
-        resourceType: VirtualMachine
-      strategy:
-          runOnce:
-            deploy:
-              steps:
-                - task: Bash@3
-                  displayName: "Run Selenium tests"
-                  inputs:
-                    targetType: "inline"
-                    script: |
-                      #!/bin/bash
-                      cd $(Pipeline.Workspace)/selenium
-                      find . -type f ! -name 'selenium-$(Build.BuildId).zip' -delete
-                      unzip -o selenium-$(Build.BuildId).zip
-                      sudo mkdir -p /var/log/selenium
-                      sudo chmod 777 /var/log/selenium
-                      sudo python3 -u test-suite.py 2>&1 | sudo tee -a '/var/log/selenium/selenium-test-$(Build.BuildId).log'
-                      cd $(System.DefaultWorkingDirectory)
-                      mkdir -p log/selenium
-                      sudo cp '/var/log/selenium/selenium-test-$(Build.BuildId).log' 'log/selenium/selenium-test-$(Build.BuildId).log'
-
-                - task: PublishPipelineArtifact@1
-                  displayName: "Publish Selenium logs"
-                  inputs:
-                    targetPath: "$(System.DefaultWorkingDirectory)/log/selenium/selenium-test-$(Build.BuildId).log"
-                    artifactName: "selenium-logs"  
+    - job: SeleniumTest
+      steps:
+      - publish: $(System.DefaultWorkingDirectory)/automatedtesting/selenium/login.py
+        artifact: selenium-python-file
+      - download: current
+        artifact: selenium-python-file
+      - task: Bash@3
+        displayName: 'Running Selenium Test'
+        inputs:
+          targetType: 'inline'
+          script: |
+            pwd
+            sudo apt-get update -y
+            sudo apt-get install python3-pip -y
+            sudo apt-get install unzip -y
+            sudo apt-get install -y chromium-browser
+            sudo apt-get install -y chromium-chromedriver
+            sudo pip3 install -U selenium
+            wget https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip
+            rm -rf chromedriver_linux.zip
+            chromium-browser -version
+            chromedriver --version
+            sudo mkdir -p /var/logs/seleniumlogfile.txt
+            sudo chmod 775 /var/logs/seleniumlogfile.txt
+            sudo python3 -u $(Pipeline.Workspace)/selenium-python-file/login.py 2>&1 | sudo tee -a /var/logs/seleniumlogfile.txt
+            cd $(System.DefaultWorkingDirectory)
+            mkdir -p logs/selenium
+            pwd
+            cat seleniumlog.txt
+            ls -la  
+             
                 #-----Log Anaylytics
 
                 #------jMeter
