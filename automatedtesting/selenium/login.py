@@ -12,7 +12,7 @@ import datetime
 import logging
 #Logging Tutorial in Python https://www.youtube.com/watch?v=gsa1oFn9n0M
 #logging.basicConfig(filename='/home/<unixuser>/logs/selenium.log', filemode='a', level=logging.INFO)
-#logging.basicConfig(filename='E:/udacityDevopsP3/automatedtesting/selenium/logs/selenium.log', filemode='a', level=logging.INFO)
+logging.basicConfig(filename='E:/udacityDevopsP3/automatedtesting/selenium/logs/selenium.log', filemode='a', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 URL_LOGIN = 'https://www.saucedemo.com/'
