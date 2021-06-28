@@ -9,20 +9,28 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 import datetime
+import logging
+#Logging Tutorial in Python https://www.youtube.com/watch?v=gsa1oFn9n0M
+#logging.basicConfig(filename='/home/<unixuser>/logs/selenium.log', filemode='a', level=logging.INFO)
+#logging.basicConfig(filename='E:/udacityDevopsP3/automatedtesting/selenium/logs/selenium.log', filemode='a', level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 URL_LOGIN = 'https://www.saucedemo.com/'
 URL_INVENTORY = 'https://www.saucedemo.com/inventory.html'
 URL_CART = 'https://www.saucedemo.com/cart.html'
 
+
 def log_status(text):
     """log_status log status including timestamp"""
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    logger.info(timestamp + " " + text)
     print(f"{timestamp} - {text}")
 
 def login(driver, user, password):
     """Login to the website"""
     log_status('Navigating to the demo page to login.')
     driver.get(URL_LOGIN)
+    driver.maximize_window()
     driver.find_element_by_id("user-name").send_keys(user)
     driver.find_element_by_id("password").send_keys(password)
     driver.find_element_by_id("login-button").click()
@@ -74,7 +82,7 @@ def run_tests():
     log_status("Starting the browser...")
     options = ChromeOptions()
     options.add_argument('--no-sandbox')
-    options.add_argument("--headless")
+    #options.add_argument("--headless")
     options.add_argument('--disable-gpu')
     driver = webdriver.Chrome(options=options)
     log_status('Browser started successfully.')
