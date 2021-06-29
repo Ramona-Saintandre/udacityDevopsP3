@@ -110,7 +110,10 @@ Verify dummy API's can pass by running them through Newman| :white_check_mark:
 [Install Postman](https://www.postman.com/downloads/). 
 With the starter files I was able to test the dummy API locally with different environment variables and then export the results as a collection to my project directory.   
 Once the collection files have been pushed to GitHub you will need to create a script to run a Data Validation and Regression test in the Pipeline and create a report of the results.   
-The command line Collection Runner [Newman](https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/#:~:text=Newman%20is%20a%20command%20line,integration%20servers%20and%20build%20systems.) was used to perform these tests.   
+The command line Collection Runner  
+
+[Newman](https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/#:~:text=Newman%20is%20a%20command%20line,integration%20servers%20and%20build%20systems.)   
+was used to perform these tests.   
 The following script was used:
 
 ```
@@ -125,8 +128,9 @@ The following script was used:
 
  The results of the tests will also appear in the Pipeline output like so:
 
-![Regression Test](projectimages/regression%20test%20output.png)
-![Postman Run](projectimages/Postman%20run%20report.png)
+![Regression Test](projectimages/regression%20test%20output.png) 
+
+![Postman Run](projectimages/Postman%20run%20report.jpg)  
 
 
 
@@ -142,8 +146,11 @@ Direct the output of the Selenium Test Suite to a log file, and execute the Test
 The project requires that Selenium is installed on the VM to test the UI functionality of `https://www.saucedemo.com/` website.   
 
 ![Swag Shop Inventory](projectimages/swag_shirts.png)
-The test suite should show which user logged in, what items were added to the shopping cart, and what items were removed from the shopping cart.   
+
+ems were added to the shopping cart, and what items were removed from the shopping cart.
+
 ![SwagShop](projectimages/swag%20checkout.png)
+
 I created the python code locally and made sure the test was working before ingesting it into the Pipeline.   
 To this:
 
@@ -152,7 +159,9 @@ To this:
         **`pip install -U selenium`**
 3. You can test Selenium by executing the **`login.py`** file in the Selenium folder. It should open the site and add all items to the shopping cart and then remove them from the shopping cart.
 4. A script will need to be created to perform these tasks in the CLI in the Azure Pipelines  at this point. Make sure the script includes logging the items being added and removed from the cart that can be sent to an output file.
+5. 
 ![Selenium Logs](projectimages/selenium%20logs.png)
+
 #### JMeter  
 
 ![Jmeter install](projectimages/Jmeter%20install.png)
@@ -182,7 +191,9 @@ Two tests suites were created using the Starter API files.
 ![Jmeter stress test](projectimages/Jmeter%20pipeline%20stress%20test.png)
 ![Jmeter stress test](projectimages/Jmeter%20endurance%20test.png)
 #### 4. Setup Log Analytics
+
 ![Log Analytics](projectimages/application%20logs%206_25.png)
+
 Goal | Status
 :--- | :---:  
 Configure custom logging in Azure Monitor to ingest this log file. This may be done non-CI/CD. | :check_mark:  
