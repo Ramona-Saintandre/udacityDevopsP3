@@ -190,6 +190,7 @@ Two tests suites were created using the Starter API files.
 ![Jmeter summary](projectimages/Jmeter%20local%20summary%20report.png)
 ![Jmeter stress test](projectimages/Jmeter%20pipeline%20stress%20test.png)
 ![Jmeter stress test](projectimages/Jmeter%20endurance%20test.png)
+![Jmeter pipeline run](projectimages/Jmeter%20endurance%20pipeline%20run.png)
 #### 4. Setup Log Analytics
 
 ![Log Analytics](projectimages/application%20logs%206_25.png)
