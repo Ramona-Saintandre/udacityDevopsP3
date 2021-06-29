@@ -194,7 +194,7 @@ Two tests suites were created using the Starter API files.
 ![Jmeter stress test](projectimages/Jmeter%20endurance%20test.png)  
 
 ![Jmeter pipeline run](projectimages/Jmeter%20endurance%20pipeline%20run.png) 
- 
+
 #### 4. Setup Log Analytics
 
 ![Log Analytics](projectimages/application%20logs%206_25.png)
@@ -215,6 +215,7 @@ In Log Analytics Workspace go to Advanced Settings > Data > Custom Logs > Add + 
 *    ` /seleniumlog.txt`
 *   ` <your path>/seleniumlog.txt`
 ![Custom logging setup](projectimages/customloggingsetup.png)
+![Selenium Test Log output](projectimages/SeleniumTestLogs629.png)
 Give it a name and click Done. Make sure the box is checked to apply to my Linux Machines.
 
 Return to the Log Analytics Workspace > Virtual Machines. Click on your VM, then Connect. An agent will be installed on the VM that allows Azure to collect the logs from it. (Under Settings > Agents you should see you have "1 Linux Computer Connected")
