@@ -125,9 +125,6 @@ The following script was used:
 
 
 
-
-**Note**: The dummy API provided in the starter code is buggy. While the tests pass locally, in the Pipeline most times a `429` error is present indicating `too many requests `have been made.
-
 #### Selenium
 Test Type | Technology | Stage in CI/CD pipeline | Status
 :--- | :--- | :--- | :---:    
@@ -138,7 +135,10 @@ Goal | Status
 Direct the output of the Selenium Test Suite to a log file, and execute the Test Suite. | :white_check_mark:  
 
 The project requires that Selenium is installed on the VM to test the UI functionality of `https://www.saucedemo.com/` website.   
+
+![SwagShop](projectimages/swag_shirts.png)
 The test suite should show which user logged in, what items were added to the shopping cart, and what items were removed from the shopping cart.   
+![SwagShop](projectimages/swag%20checkout.png)
 I created the python code locally and made sure the test was working before ingesting it into the Pipeline.   
 To this:
 
@@ -147,17 +147,18 @@ To this:
         **`pip install -U selenium`**
 3. You can test Selenium by executing the **`login.py`** file in the Selenium folder. It should open the site and add all items to the shopping cart and then remove them from the shopping cart.
 4. A script will need to be created to perform these tasks in the CLI in the Azure Pipelines  at this point. Make sure the script includes logging the items being added and removed from the cart that can be sent to an output file.
+![Selenium Logs](projectimages/selenium%20logs.png)
+#### JMeter  
 
-#### JMeter
-
+![Jmeter install](projectimages/Jmeter%20install.png)
 Test Type | Technology | Stage in CI/CD pipeline | Status
 :--- | :--- | :--- | :---:
 Performance | JMeter | Test Stage - runs against the AppService| :white_check_mark:    
 
 Goal | Status
 :--- | :---:  
-Stress Test |
-Endurance Test |
+Stress Test |:white_check_mark:
+Endurance Test |:white_check_mark:
 
 
 Two tests suites were created using the Starter API files.  
@@ -172,8 +173,11 @@ Two tests suites were created using the Starter API files.
      The data output from these tests will need to generate an HTML report.  
 **Note:** This may also be done non-CI/CD by [Installing JMeter](https://jmeter.apache.org/download_jmeter.cgi) and running the tests.
 **Note:** This may also be done non-CI/CD.
+![Jmeter summary](projectimages/Jmeter%20local%20summary%20report.png)
+![Jmeter stress test](projectimages/Jmeter%20pipeline%20stress%20test.png)
+![Jmeter stress test](projectimages/Jmeter%20endurance%20test.png)
 #### 4. Setup Log Analytics
-
+![Log Analytics](projectimages/application%20logs%206_25.png)
 Goal | Status
 :--- | :---:  
 Configure custom logging in Azure Monitor to ingest this log file. This may be done non-CI/CD. | :check_mark:  
