@@ -216,3 +216,8 @@ In Azure Portal go to the AppService > Alerts > New Alert Rule. Add the HTTP 404
 ## Enchancements 
 
 One of the enchancements that I would like to do with this project, is to recreate it using [Azure Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/bicep-tutorial-create-first-bicep?tabs=azure-powershell). 
+
+
+## Note to reviewer
+
+**More images can be found in the /projectimagefolder
