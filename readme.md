@@ -39,11 +39,13 @@ Create the password based authentication service principal for your project and 
     **`az ad sp create-for-rbac --name SPProject3 --query "{client_id: appId, client_secret: password, tenant_id: tenant}"`**<br>
 Make note of the password because it can't be retrieved, only reset.
 
+![Service Principal info](projectimages/Service%20Principal%20info.png)
 Login to the Service Principal using the following command with you credentials from the previous step: <br>
     **`az login --service-principal --username APP_ID --tenant TENANT_ID --password CLIENT_SECRET`**
 Configure the storage account and state backend. 
 
 You will need to create a Storage Account, before you can us Azure Storage as a backend.
+
 
 You can also use the commands in the ```azurestoragescript.sh``` file in the repo to this.    
 [Click Here](https://docs.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage) for instructions on creating the Azure storage account and backend.  
@@ -63,6 +65,7 @@ Create a Service Principal for Terraform and replace the below values in the ter
     * client_secret
     * tenant_id
 [Click Here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) if you need help with the steps for creating a service principal.
+![Service Principal in Azure](projectimages/service%20principals.png)
 #### 2. Azure DevOps
 
 1. Create a new Azure Pipeline from the **`azure-pipelines.yaml`** file or start building one from scratch if you prefer.
