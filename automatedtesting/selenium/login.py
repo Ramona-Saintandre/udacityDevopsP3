@@ -73,7 +73,7 @@ def remove_items(driver):
         log_status(f'Removed {item_name}')
 
     cart_items = len(driver.find_elements_by_class_name('cart_item'))
-    assert cart_items == 1
+    assert cart_items == 2
     log_status(' test is done, remove items from the cart')
 
 
@@ -82,7 +82,7 @@ def run_tests():
     log_status("Starting the browser...")
     options = ChromeOptions()
     options.add_argument('--no-sandbox')
-    options.add_argument("--headless")
+    #options.add_argument("--headless")
     options.add_argument('--disable-gpu')
     driver = webdriver.Chrome(options=options)
     log_status('Browser started successfully.')
