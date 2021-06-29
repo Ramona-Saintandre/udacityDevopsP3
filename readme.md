@@ -94,7 +94,7 @@ Create a Service Principal for Terraform and replace the below values in the ter
    It should look like the image below.
 
 ![Fake Rest Deploy](projectimages/MyFakerSight.png)
-![FakerWebsite](projectimages/MyFakerSight.png)
+
 
 ## 3. Running Tests in Pipeline
 
@@ -141,7 +141,7 @@ Direct the output of the Selenium Test Suite to a log file, and execute the Test
 
 The project requires that Selenium is installed on the VM to test the UI functionality of `https://www.saucedemo.com/` website.   
 
-![SwagShop](projectimages/swag_shirts.png)
+![Swag Shop Inventory](projectimages/swag_shirts.png)
 The test suite should show which user logged in, what items were added to the shopping cart, and what items were removed from the shopping cart.   
 ![SwagShop](projectimages/swag%20checkout.png)
 I created the python code locally and made sure the test was working before ingesting it into the Pipeline.   
