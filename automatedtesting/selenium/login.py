@@ -73,7 +73,7 @@ def remove_items(driver):
         log_status(f'Removed {item_name}')
 
     cart_items = len(driver.find_elements_by_class_name('cart_item'))
-    assert cart_items == 0
+    assert cart_items == 3
     log_status(' test is done, remove items from the cart')
 
 
