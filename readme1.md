@@ -116,10 +116,12 @@ The following script was used:
     echo 'Running Data Validation Test'
     newman run automatedtesting/postman/DataValidation.postman_collection.json  --delay-request 12000 --reporters cli,junit --suppress-exit-code
 ```
-
+![Newman  Table](projectimages/newmantable.png)
 Be sure to publish the results of this script in JUnit format to an xml file to view the results. The results of the tests will also appear in the Pipeline output like so:
 
-![Newman Data Validation]
+![Regression Test](projectimages/regression%20test%20output.png)
+![Postman Run](projectimages/Postman%20run%20report.png)
+
 
 
 
