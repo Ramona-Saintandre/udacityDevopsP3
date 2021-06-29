@@ -66,6 +66,7 @@ Create a Service Principal for Terraform and replace the below values in the ter
     * tenant_id
 [Click Here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) if you need help with the steps for creating a service principal.  
 ![Service Principal in Azure](https://drive.google.com/file/d/1sbaZxiEwA3mQWtgGs5YFarjspEeSHS2n/view?usp=sharing)
+
 #### 2. Azure DevOps
 
 1. Create a new Azure Pipeline from the **`azure-pipelines.yaml`** file or start building one from scratch if you prefer.
@@ -93,6 +94,7 @@ Create a Service Principal for Terraform and replace the below values in the ter
    It should look like the image below.
 
 ![Fake Rest Deploy](projectimages/MyFakerSight.png)
+![FakerWebsite](projectimages/MyFakerSight.png)
 
 ## 3. Running Tests in Pipeline
 
