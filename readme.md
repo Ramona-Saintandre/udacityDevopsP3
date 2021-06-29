@@ -214,9 +214,13 @@ Return to the Log Analytics Workspace > Logs and run a query such as `Perf`to se
 In Log Analytics Workspace go to Advanced Settings > Data > Custom Logs > Add + > Choose File. Select the seleniumlog.txt file created from the Pipeline run. (I downloaded a copy to my local machine and uploaded a copy to the Azure VM via SSH) > Next > Next. Enter the paths for the Linux machine where the file is located, such as:
 *    ` /seleniumlog.txt`
 *   ` <your path>/seleniumlog.txt`
-![Custom logging setup](projectimages/customloggingsetup.png)
+![Custom logging setup](projectimages/customloggingsetup.png) 
+
 ![Selenium Test Log output](projectimages/SeleniumTestLogs629.png)
-Give it a name and click Done. Make sure the box is checked to apply to my Linux Machines.
+
+![Selenium Run](projectimages/selennium%20run%20628.png)
+
+Give it a name and click Done. 
 
 Return to the Log Analytics Workspace > Virtual Machines. Click on your VM, then Connect. An agent will be installed on the VM that allows Azure to collect the logs from it. (Under Settings > Agents you should see you have "1 Linux Computer Connected")
 
