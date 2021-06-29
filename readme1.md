@@ -89,7 +89,7 @@ Create a Service Principal for Terraform and replace the below values in the ter
 2. Deploy the FakeRestAPI to your App Service on your VM. The URL for my webapp is (need to add URL)  
    It should look like the image below.
 
-![Fake Rest Deploy]
+![Fake Rest Deploy](projectimages/MyFakerSight.png)
 
 ## 3. Running Tests in Pipeline
 
@@ -117,7 +117,8 @@ The following script was used:
     newman run automatedtesting/postman/DataValidation.postman_collection.json  --delay-request 12000 --reporters cli,junit --suppress-exit-code
 ```
 ![Newman  Table](projectimages/newmantable.png)
-Be sure to publish the results of this script in JUnit format to an xml file to view the results. The results of the tests will also appear in the Pipeline output like so:
+
+ The results of the tests will also appear in the Pipeline output like so:
 
 ![Regression Test](projectimages/regression%20test%20output.png)
 ![Postman Run](projectimages/Postman%20run%20report.png)
