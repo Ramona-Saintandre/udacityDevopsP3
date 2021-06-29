@@ -90,6 +90,8 @@ Create a Service Principal for Terraform and replace the below values in the ter
 
 1. Build the FakeRestAPI and Automated Testing artifacts and publish them to the artifact staging directory in the Pipeline.
 
+![Build image](projectimages/projectbuild-url.png)  
+
 2. Deploy the FakeRestAPI to your App Service on your VM. The URL for my webapp is (need to add URL)  
    It should look like the image below.
 
@@ -236,6 +238,10 @@ Configure an Action Group (email) | :white_check_mark:
 
 The project also calls for creating an alert rule with an HTTP 404 condition. It also requires an action group to be created with Email notification. After the alert takes effect, visit the URL of the AppService and try to cause 404 errors by visiting non-existent pages. After the 2nd 404 error an email alert should be triggered. To set this up:
 
+![alerts](projectimages/appServicealerts.png)  
+![alerts](projectimages/Malertscreation.png)  
+![alerts](projectimages/alert%20rules.png)   
+  
 In Azure Portal go to the AppService > Alerts > New Alert Rule. Add the HTTP 404 condition with a threshold value of 1. This creates an alert once there are at least 2 404 errors. Click **Done**. Now create the action group with the notification type set to **Email/SMS message/Push/Voice** choosing the email option. Give it a name and severity level.
 
 ![Email Alert](projectimages/InkedAzure%20email%20alert_LI.jpg)

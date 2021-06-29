@@ -1,0 +1,16 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1624979780580,1578,GET All Activities,403,Site Disabled,Starter 1-5,text,false,,2487,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,1576,0,1522
+1624979780180,1978,GET All Activities,403,Site Disabled,Starter 1-3,text,false,,2487,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,1976,0,1928
+1624979779980,2178,GET All Activities,403,Site Disabled,Starter 1-2,text,false,,2487,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,2176,0,2122
+1624979780377,1781,GET All Activities,403,Site Disabled,Starter 1-4,text,false,,2487,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,1779,0,1725
+1624979779848,2309,GET All Activities,403,Site Disabled,Starter 1-1,text,false,,2487,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,2307,0,2253
+1624979782160,41,GET All Activities,403,Site Disabled,Starter 1-3,text,false,,2487,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,41,0,0
+1624979782160,41,GET All Activities,403,Site Disabled,Starter 1-5,text,false,,2487,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,41,0,0
+1624979782160,43,GET All Activities,403,Site Disabled,Starter 1-4,text,false,,2487,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,43,0,0
+1624979782201,41,GET All Activities,403,Site Disabled,Starter 1-5,text,false,,2487,188,5,5,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,41,0,0
+1624979782204,40,GET All Activities,403,Site Disabled,Starter 1-4,text,false,,2487,188,4,4,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,40,0,0
+1624979782160,188,GET All Activities,403,Site Disabled,Starter 1-2,text,false,,2487,188,3,3,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,188,0,147
+1624979782160,190,GET All Activities,403,Site Disabled,Starter 1-1,text,false,,2487,188,3,3,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,190,0,143
+1624979782348,42,GET All Activities,403,Site Disabled,Starter 1-2,text,false,,2487,188,3,3,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,42,0,0
+1624979782350,42,GET All Activities,403,Site Disabled,Starter 1-1,text,false,,2487,188,2,2,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,42,0,0
+1624979782201,193,GET All Activities,403,Site Disabled,Starter 1-3,text,false,,2487,188,1,1,https://test-appservice-udacityp3.azurewebsites.net/api/Activities,193,0,149
