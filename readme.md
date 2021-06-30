@@ -159,10 +159,17 @@ To this:
 1. [Download the latest Chrome driver](https://sites.google.com/a/chromium.org/chromedriver/). Make sure chromedriver is added to PATH.
 2. Run
         **`pip install -U selenium`**
+
 3. You can test Selenium by executing the **`login.py`** file in the Selenium folder. It should open the site and add all items to the shopping cart and then remove them from the shopping cart.
 4. A script will need to be created to perform these tasks in the CLI in the Azure Pipelines  at this point. Make sure the script includes logging the items being added and removed from the cart that can be sent to an output file.
 5. 
 ![Selenium Logs](projectimages/selenium%20logs.png)
+![Selenium run 627](projectimages/selenium_run_627.png)
+![pipeline run 627](projectimages/pipeline_run_627.png)
+![Selenium run 628](projectimages/selenium_run_6_28.png)
+![pipeline run 628](projectimages/pipeline_run_628.png)
+
+
 
 #### JMeter  
 
