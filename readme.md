@@ -225,6 +225,7 @@ In Log Analytics Workspace go to Advanced Settings > Data > Custom Logs > Add + 
 *   ` <your path>/seleniumlog.txt`
 ![Custom logging setup](projectimages/customloggingsetup.png) 
 
+## Selenium Log query
 ![Selenium Test Log output](projectimages/SeleniumTestLogs629.png)
 
 ![Selenium Run](projectimages/selennium%20run%20628.png)
@@ -252,6 +253,9 @@ The project also calls for creating an alert rule with an HTTP 404 condition. It
 In Azure Portal go to the AppService > Alerts > New Alert Rule. Add the HTTP 404 condition with a threshold value of 1. This creates an alert once there are at least 2 404 errors. Click **Done**. Now create the action group with the notification type set to **Email/SMS message/Push/Voice** choosing the email option. Give it a name and severity level.
 
 ![Email Alert](projectimages/InkedAzure%20email%20alert_LI.jpg)
+![Email Alert](projectimages/Inkedalert_email_629_LI.jpg)
+![Email Alert](projectimages/Inkedalert_deactivated_629_LI.jpg)
+![ Alert](projectimages/up3_storeRG360alerts.png)
 
 ## Enchancements 
 
