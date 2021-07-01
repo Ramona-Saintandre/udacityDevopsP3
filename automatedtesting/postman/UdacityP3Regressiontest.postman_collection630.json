@@ -1,10 +1,56 @@
 {
 	"info": {
-		"_postman_id": "e414d7ee-a6d0-41e3-96b0-3675ca9e1650",
-		"name": "UdacityP3Regressiontest Copy",
+		"_postman_id": "46c6429b-0972-421c-bc54-53529d9247e0",
+		"name": "UdacityP3Regressiontest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Create Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
+							"var json = pm.response.json();",
+							"pm.environment.set(\"id\", json.data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"codinggrandma1\",\n    \"salary\": \"{{salary}}\",\n    \"age\": \"{{age}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/create",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "Get Employees",
 			"event": [
@@ -36,6 +82,118 @@
 						"api",
 						"v1",
 						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.test(\"Successful response\", function () {\r",
+							"   // pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"//});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app}}/api/v1/employee/1",
+					"host": [
+						"{{app}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.test(\"Successful response\", function () {\r",
+							"   // pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"//});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"codinggrandma2\",\r\n    \"salary\": \"45\",\r\n    \"age\": \"50\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app}}/api/v1/update/{{id}}",
+					"host": [
+						"{{app}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"update",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.test(\"Successful response\", function () {",
+							"    //pm.expect(pm.response.text()).to.include(\"success\");",
+							"//});",
+							"",
+							"//pm.test(\"Deleted\", function () {",
+							"   // pm.expect(pm.response.text()).to.include(\"deleted\");",
+							"//});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app}}/api/v1/delete/{{id}}",
+					"host": [
+						"{{app}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						"{{id}}"
 					]
 				}
 			},

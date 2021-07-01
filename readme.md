@@ -215,10 +215,10 @@ A Log Analytics Workspace will need to be created to ingest the Selenium Log out
  could be helpful in setting up Log Analytics.
 
 Go to the app service > Diagnostic Settings > + Add Diagnostic Setting. Click AppServiceHTTPLogs and Send to Log Analytics Workspace. Select a workspace (can be an existing default workspace) > Save. Go back to the app service > App Service Logs. Turn on Detailed Error Messages and Failed Request Tracing > Save. Restart the app service.
-
+![Log Analytics Heartbeat](projectimages/heartbeat_logs630.png)
 Return to the Log Analytics Workspace > Logs and run a query such as `heartbeat`to see some log results and check that Log Analytics is working properly.
 
-![Log Analytics Heartbeat](projectimages/heartbeat_logs630.png)
+![Analytic Metric](projectimages/analyticmetrics71.png)
 #### 5. Setup Custom Logging
 In Log Analytics Workspace go to Advanced Settings > Data > Custom Logs > Add + > Choose File. Select the seleniumlog.txt file created from the Pipeline run. (I downloaded a copy to my local machine and uploaded a copy to the Azure VM via SSH) > Next > Next. Enter the paths for the Linux machine where the file is located, such as:
 *    ` /seleniumlog.txt`
