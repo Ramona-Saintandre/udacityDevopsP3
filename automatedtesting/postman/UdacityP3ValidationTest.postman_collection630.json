@@ -12,12 +12,14 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
 							"});",
-							"",
 							"pm.test(\"Successful response\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
+							"pm.test(\"Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.not.include(\"null\");",
 							"});",
 							"var json = pm.response.json();",
 							"pm.environment.set(\"id\", json.data.id);"
@@ -62,8 +64,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful response\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
 							"});",
 							""
 						],
@@ -95,13 +97,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful response\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});",
-							"pm.test(\"Tiger found\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"Tiger\");",
-							"});",
-							""
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
 						],
 						"type": "text/javascript"
 					}
