@@ -150,14 +150,8 @@ stages:
               echo 'Running Regression Test'
               newman run automatedtesting/postman/UdacityP3Regressiontest.postman_collection630.json  --delay-request 15000 --reporters cli,junit --suppress-exit-code
               echo 'Running Data Validation Test'
-              newman run automatedtesting/postman/UdacityP3ValidationTest.postman_collection630.json  --delay-request 12000 --reporters cli,junit --suppress-exit-code
-        - task: oneLuckiGetPostmanScripts@1
-          inputs:
-            fileLocation: '$(Build.ArtifactStagingDirectory)'
-            apiKey: 'PMAK-60de3366b4324e0052009696-519bb3ea0cb635d17e0393845facfadcf4'
-            pauseDuration: '100'
-            downloadEnvironments: true
-            environmentFolder: 'environments'
+              newman run automatedtesting/postman/UdacityP3ValidationTest.postman_collection630.json  --delay-request 15000 --reporters cli,junit --suppress-exit-code
+        
         - task: PublishTestResults@2
           displayName: 'Publish Postman Newman Results **/newman-*.xml'
           condition: always()
