@@ -164,7 +164,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"salary\": \"45000\",\r\n    \"age\": \"{{age}}\"\r\n}",
+					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"salary\": \"42000\",\r\n    \"age\": \"{{age}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
