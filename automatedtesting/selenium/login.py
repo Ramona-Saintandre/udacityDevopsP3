@@ -1,7 +1,7 @@
 # #!/usr/bin/env python
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from datetime import datetime
+# from datetime import datetime
 import logging
 
 logging.basicConfig(filename="./seleniumlog630.log", format="%(asctime)s %(message)s",

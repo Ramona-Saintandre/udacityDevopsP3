@@ -83,12 +83,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/employees",
-					"protocol": "http",
+					"raw": "{{app}}/api/v1/employees",
 					"host": [
-						"dummy",
-						"restapiexample",
-						"com"
+						"{{app}}"
 					],
 					"path": [
 						"api",
@@ -122,17 +119,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/employees",
-					"protocol": "http",
+					"raw": "{{app}}/api/v1/employee/1",
 					"host": [
-						"dummy",
-						"restapiexample",
-						"com"
+						"{{app}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"employees"
+						"employee",
+						"1"
 					]
 				}
 			},
@@ -148,8 +143,8 @@
 							"pm.test(\"Successful response\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 							"});\r",
-							"pm.test(\"Salary 42000\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"42000\");\r",
+							"pm.test(\"Salary 3000\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"3000\");\r",
 							"});\r",
 							"pm.test(\"Salary not 25000\", function () {\r",
 							"    pm.expect(pm.response.text()).to.not.include(\"25000\");\r",
@@ -164,7 +159,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"salary\": \"42000\",\r\n    \"age\": \"{{age}}\"\r\n}",
+					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"salary\": \"30000\",\r\n    \"age\": \"{{age}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
