@@ -66,14 +66,13 @@
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
 							"});",
 							"",
-							"pm.test(\"Jenette found\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"Jenette\");",
-							"});",
 							"",
-							"pm.test(\"Ramona not found\", function () {",
-							"    pm.expect(pm.response.text()).to.not.include(\"Ramona\");",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Jenette\");",
 							"});",
-							""
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Tiger\");",
+							"});"
 						],
 						"type": "text/javascript"
 					}
