@@ -266,26 +266,3 @@ One of the enchancements that I would like to do with this project, is to recrea
 
 **More images can be found in the /projectimagefolder
 
-I tried to re-run my Jmeter test to get the required screenshots. U
-Unfortnately I have exceeded my quota, and I can not longer run anymore test against my service without paying. 
-
-So it would be greatly appreciated if this is taken into consideration when reviewing my project. 
-
-Thanks you 
-
-I have already exceeded my 50$ budget for this project. 
-![quota reached](projectimages/appservicequota.png)  
-![cost](projectimages/costanalysis.png)  
- ![JmeterStress HTML report](projectimages/st)
-![Jmeter Stress XML](projectimages/stresstesthtml629.png) 
-![Jmeter HTML](projectimages/JmeterHTMLreports.png)  
-![Jmeter endurance XML](projectimages/endurancecsv629.png)
-![JmeterEndurnce HTML report](projectimages/Jmeterendurancehtml629.png)
-
-As you can see from the previous screen shots, they were passing. 
-I just did not include the URL timestamp in the screenshot. 
-
-![JmeterEndurnce HTML report 626 passed ](projectimages/Jmeter%20endurance%20test.png)
-![JmeterStress HTML report 626 passed ](projectimages/Jmeter%20stress%20test.png)
-
-Thank you 
