@@ -6,18 +6,17 @@
 	},
 	"item": [
 		{
-			"name": "Create Employee",
+			"name": "Create Employee Copy",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
 							"pm.test(\"Successful response\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
+							"pm.test(\"Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.not.include(\"null\");",
 							"});",
 							"var json = pm.response.json();",
 							"pm.environment.set(\"id\", json.data.id);"
@@ -31,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"codinggrandma22\",\n    \"salary\": \"42000\",\n    \"age\": \"49\"\n}",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"salary\": \"{{salary}}\",\n    \"age\": \"{{age}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,12 +38,9 @@
 					}
 				},
 				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/create",
-					"protocol": "http",
+					"raw": "{{app}}/api/v1/create",
 					"host": [
-						"dummy",
-						"restapiexample",
-						"com"
+						"{{app}}"
 					],
 					"path": [
 						"api",
@@ -56,20 +52,22 @@
 			"response": []
 		},
 		{
-			"name": "Update Employee Copy",
+			"name": "Get All Employees Copy",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful response\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"});\r",
-							"pm.test(\"Salary 42000\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"42000\");\r",
-							"});\r",
-							"pm.test(\"Salary not 23000\", function () {\r",
-							"    pm.expect(pm.response.text()).to.not.include(\"23000\");\r",
+							"pm.test(\"Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
+							"",
+							"pm.test(\"Nixon found\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Nixon\");",
+							"});",
+							"",
+							"pm.test(\"Ramona not found\", function () {",
+							"    pm.expect(pm.response.text()).to.not.include(\"Ramona\");",
 							"});"
 						],
 						"type": "text/javascript"
@@ -77,27 +75,17 @@
 				}
 			],
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"salary\": \"42000\",\r\n    \"age\": \"{{age}}\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "{{app}}/api/v1/update/{{id}}",
+					"raw": "{{app}}/api/v1/employees",
 					"host": [
 						"{{app}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"update",
-						"{{id}}"
+						"employees"
 					]
 				}
 			},
