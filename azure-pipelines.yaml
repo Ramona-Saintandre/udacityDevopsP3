@@ -178,7 +178,7 @@ stages:
             sudo apt-get install -y chromium-browser
             sudo apt-get install -y chromium-chromedriver
             sudo pip3 install -U selenium
-            wget https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip
+            wget https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_linux64.zip
             unzip chromedriver_linux64.zip
             rm -rf chromedriver_linux.zip
             chromium-browser -version
