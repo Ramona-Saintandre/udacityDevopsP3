@@ -1,19 +1,19 @@
-2021-07-01 01:09:13 Starting the browser...
-2021-07-01 01:09:15 Browser started successfully. Navigating to the demo page to login.
-2021-07-01 01:09:15 Logging in...
-2021-07-01 01:09:15 The Login was successful by the user name: standard_user
-2021-07-01 01:09:16 Adding all products to cart
-2021-07-01 01:09:16 Adding Sauce Labs Backpack to cart
-2021-07-01 01:09:16 Adding Sauce Labs Bike Light to cart
-2021-07-01 01:09:16 Adding Sauce Labs Bolt T-Shirt to cart
-2021-07-01 01:09:16 Adding Sauce Labs Fleece Jacket to cart
-2021-07-01 01:09:16 Adding Sauce Labs Onesie to cart
-2021-07-01 01:09:16 Adding Test.allTheThings() T-Shirt (Red) to cart
-2021-07-01 01:09:16 All the products are added to cart
-2021-07-01 01:09:16 Removing Sauce Labs Backpack from cart
-2021-07-01 01:09:16 Removing Sauce Labs Bike Light from cart
-2021-07-01 01:09:16 Removing Sauce Labs Bolt T-Shirt from cart
-2021-07-01 01:09:16 Removing Sauce Labs Fleece Jacket from cart
-2021-07-01 01:09:16 Removing Sauce Labs Onesie from cart
-2021-07-01 01:09:16 Removing Test.allTheThings() T-Shirt (Red) from cart
-2021-07-01 01:09:16 All products are removed from cart
+2021-07-01 01:24:01 Starting the browser...
+2021-07-01 01:24:02 Browser started successfully. Navigating to the demo page to login.
+2021-07-01 01:24:05 Logging in...
+2021-07-01 01:24:05 The Login was successful by the user name: standard_user
+2021-07-01 01:24:05 Adding all products to cart
+2021-07-01 01:24:05 Adding Sauce Labs Backpack to cart
+2021-07-01 01:24:05 Adding Sauce Labs Bike Light to cart
+2021-07-01 01:24:05 Adding Sauce Labs Bolt T-Shirt to cart
+2021-07-01 01:24:05 Adding Sauce Labs Fleece Jacket to cart
+2021-07-01 01:24:05 Adding Sauce Labs Onesie to cart
+2021-07-01 01:24:05 Adding Test.allTheThings() T-Shirt (Red) to cart
+2021-07-01 01:24:05 All the products are added to cart
+2021-07-01 01:24:05 Removing Sauce Labs Backpack from cart
+2021-07-01 01:24:05 Removing Sauce Labs Bike Light from cart
+2021-07-01 01:24:05 Removing Sauce Labs Bolt T-Shirt from cart
+2021-07-01 01:24:05 Removing Sauce Labs Fleece Jacket from cart
+2021-07-01 01:24:05 Removing Sauce Labs Onesie from cart
+2021-07-01 01:24:05 Removing Test.allTheThings() T-Shirt (Red) from cart
+2021-07-01 01:24:05 All products are removed from cart

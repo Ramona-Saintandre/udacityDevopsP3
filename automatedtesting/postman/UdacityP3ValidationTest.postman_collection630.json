@@ -56,41 +56,85 @@
 			"response": []
 		},
 		{
-			"name": "Get All Employees",
+			"name": "Update Employee Copy",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful response\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});",
-							"",
-							"pm.test(\"Jenette found\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"Jenette\");",
-							"});",
-							"",
-							"pm.test(\"Ramona not found\", function () {",
-							"    pm.expect(pm.response.text()).to.not.include(\"Ramona\");",
-							"});",
-							""
+							"pm.test(\"Successful response\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});\r",
+							"pm.test(\"Salary 42000\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"42000\");\r",
+							"});\r",
+							"pm.test(\"Salary not 23000\", function () {\r",
+							"    pm.expect(pm.response.text()).to.not.include(\"23000\");\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"salary\": \"42000\",\r\n    \"age\": \"{{age}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{app}}/api/v1/employees",
+					"raw": "{{app}}/api/v1/update/{{id}}",
 					"host": [
 						"{{app}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"employees"
+						"update",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful response\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Deleted\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"deleted\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app}}/api/v1/delete/{{id}}",
+					"host": [
+						"{{app}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						"{{id}}"
 					]
 				}
 			},
