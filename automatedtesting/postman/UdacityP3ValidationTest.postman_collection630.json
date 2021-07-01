@@ -1,199 +1,190 @@
 {
 	"info": {
-		"_postman_id": "ccc968c3-d194-4511-a46f-c34a27c38beb",
-		"name": "Juwana TestRestAPI_Regression",
+		"_postman_id": "81e3551c-fb47-4d8f-8e42-27e60150c876",
+		"name": "Data Validation Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Create Employee",
-			"event": [
+			"name": "Activities",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Successful response\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});",
-							"var json = pm.response.json();",
-							"pm.environment.set(\"id\", json.data.id);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"{{name}}\",\n    \"salary\": \"{{salary}}\",\n    \"age\": \"{{age}}\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "Get Activities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Data Validation Test : Get All Activies - Response inlcudes atleast one 'Title'\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Title\");",
+									"});",
+									"https://test-appservice-udacityp3.azurewebsites.net",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/create",
-					"protocol": "http",
-					"host": [
-						"dummy",
-						"restapiexample",
-						"com"
 					],
-					"path": [
-						"api",
-						"v1",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Employees",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Successful response\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/employees",
-					"protocol": "http",
-					"host": [
-						"dummy",
-						"restapiexample",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"employees"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Employee",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Successful response\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{app}}/api/v1/employee/1",
-					"host": [
-						"{{app}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"employee",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Employee",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Successful response\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"salary\": \"40\",\r\n    \"age\": \"{{age}}\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{name}}\",\n    \"salary\": \"{{salary}}\",\n    \"age\": \"{{age}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Activities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Activities"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{app}}/api/v1/update/{{id}}",
-					"host": [
-						"{{app}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"update",
-						"{{id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Employee",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Successful response\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{app}}/api/v1/delete/{{id}}",
-					"host": [
-						"{{app}}"
+					"name": "Get Activity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Data Validation Test : Get Activity 1 - Response inlcudes 'Title'\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Title\");",
+									"});",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"api",
-						"v1",
-						"delete",
-						"{{id}}"
-					]
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{name}}\",\n    \"salary\": \"{{salary}}\",\n    \"age\": \"{{age}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Activities/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Activities",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Activity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Data Validation Test :  new activity - Response inlcudes 'pass this project'\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"pass this project\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"pass this project\",\n  \"DueDate\": \"2021-07-01\",\n  \"Completed\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Activities/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Activities",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Activity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Data Validation Test : Update activity - Response inlcudes 'true'\", function () {",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"    pm.expect(pm.response.text()).to.include(\"true\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"project passed \",\n  \"DueDate\": \"2021-07-01:36:31.535Z\",\n  \"Completed\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Activities/0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Activities",
+								"0"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
