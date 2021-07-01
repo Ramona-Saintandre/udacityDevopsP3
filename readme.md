@@ -83,14 +83,17 @@ Create a Service Principal for Terraform and replace the below values in the ter
 7. Create your Azure resources (Most can be provisioned via Terraform using the Pipeline by adding tasks and jobs to the `azure-pipelines.yml` file utilizing ```terraform init```, ```terraform plan```, and ```terraform apply``` commands).
 
 
-![TerraForm apply](projectimages/Terraform%20setup/terraformapply-success.png)
+![TerraForm init](projectimages/terraform_init_71.png)
+![TerraForm plan](projectimages/terraform_plan_71.png)
+![TerraForm apply](projectimages/terraform_plan_71.png)  
+
 1. Once the resources are deployed you will have to follow the instructions on setting up an environment in Azure Pipelines to register the Linux VM so your app can be deployed to it. You can find that documentation [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/environments-virtual-machines?view=azure-devops). In Azure DevOps under Pipelines > Environments > TEST > Add resource > Select "Virtual Machines" > Next > Under Operating System select "Linux".  You will be given a registration script to copy. SSH into your VM and paste this script into the terminal and run it. This will register your VM and allow Azure Pipelines to act as an agent to run commands on it.
 
 ![TEST-VM Environment](projectimages/P3VM.png)
 
 1. Build the FakeRestAPI and Automated Testing artifacts and publish them to the artifact staging directory in the Pipeline.
 
-![Build image](projectimages/projectbuild-url.png)  
+![Build image](projectimages/build414.png)  
 
 2. Deploy the FakeRestAPI to your App Service on your VM. The URL for my webapp is (need to add URL)  
    It should look like the image below.
@@ -126,15 +129,13 @@ The following script was used:
     echo 'Running Data Validation Test'
     newman run automatedtesting/postman/DataValidation.postman_collection.json  --delay-request 12000 --reporters cli,junit --suppress-exit-code
 ```
-![Newman  Table](projectimages/newmantable.png)
+![Newman  Table Regression](projectimages/newmanRegressionouput630.png)
+![Newman  Graph Regression](projectimages/newmanRegressionGraph630.png)
+![Newman  Table Validation](projectimages/newmanValidationoutput630.png)
+![Newman  Graph Validation](projectimages/newmanoverallgraph630.png)
+![Newman  Graph ](projectimages/newmanvalidationgraph630.png)
 
  The results of the tests will also appear in the Pipeline output like so:
-
-![Regression Test](projectimages/regression%20test%20output.png) 
-
-![Postman Run](projectimages/Postman%20run%20report.jpg)  
-
-
 
 #### Selenium
 Test Type | Technology | Stage in CI/CD pipeline | Status
@@ -147,7 +148,7 @@ Direct the output of the Selenium Test Suite to a log file, and execute the Test
 
 The project requires that Selenium is installed on the VM to test the UI functionality of `https://www.saucedemo.com/` website.   
 
-![Swag Shop Inventory](projectimages/swag_shirts.png)
+![Swag Shop Inventory](projectimages/selenium/swag_shirts.png)
 
 ems were added to the shopping cart, and what items were removed from the shopping cart.
 
@@ -163,17 +164,12 @@ To this:
 3. You can test Selenium by executing the **`login.py`** file in the Selenium folder. It should open the site and add all items to the shopping cart and then remove them from the shopping cart.
 4. A script will need to be created to perform these tasks in the CLI in the Azure Pipelines  at this point. Make sure the script includes logging the items being added and removed from the cart that can be sent to an output file.
 5. 
-![Selenium Logs](projectimages/selenium%20logs.png)
-![Selenium run 627](projectimages/selenium_run_627.png)
-![pipeline run 627](projectimages/pipeline_run_627.png)
-![Selenium run 628](projectimages/selenium_run_6_28.png)
-![pipeline run 628](projectimages/pipeline_run_628.png)
-
-
+![Selenium Logs](projectimages/SeleniumAnalyticLogs.png)
+![Selenium run ](projectimages/seleniumRun630.png)
 
 #### JMeter  
 
-![Jmeter install](projectimages/Jmeter%20install.png)
+![Jmeter install](projectimages/jmeterinstall_71.png)
 Test Type | Technology | Stage in CI/CD pipeline | Status
 :--- | :--- | :--- | :---:
 Performance | JMeter | Test Stage - runs against the AppService| :white_check_mark:    
@@ -196,39 +192,41 @@ The data output from these tests will need to generate an HTML report.
 
 **Note:** This may also be done non-CI/CD by [Installing JMeter](https://jmeter.apache.org/download_jmeter.cgi) and running the tests.
 **Note:** This may also be done non-CI/CD.
-![Jmeter summary](projectimages/Jmeter%20local%20summary%20report.png)
 
-![Jmeter stress test](projectimages/Jmeter%20pipeline%20stress%20test.png) 
 
-![Jmeter stress test](projectimages/Jmeter%20endurance%20test.png)  
+![Jmeter stress test](projectimages/jmeterstresstest71.png) 
 
-![Jmeter pipeline run](projectimages/Jmeter%20endurance%20pipeline%20run.png) 
+![Jmeter endurance test](projectimages/Jmeter/../jmeterendurancetest71.png)  
+
+![Jmeter endurance html](projectimages/Jmeter/Jmeterendurancehtml629.png) 
+![Jmeter stress html](projectimages/Jmeter/stresstesthtml629.png)
+ 
 
 #### 4. Setup Log Analytics
 
-![Log Analytics](projectimages/application%20logs%206_25.png)
+![Log Analytics](projectimages/heartbeat_logs630.png)
 
 Goal | Status
 :--- | :---:  
 Configure custom logging in Azure Monitor to ingest this log file. This may be done non-CI/CD. | :check_mark:  
 
 A Log Analytics Workspace will need to be created to ingest the Selenium Log output file.  
- [This Resource](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-custom-logs) could be helpful in setting up Log Analytics.
+ [This Resource](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-custom-logs)   
+ could be helpful in setting up Log Analytics.
 
 Go to the app service > Diagnostic Settings > + Add Diagnostic Setting. Click AppServiceHTTPLogs and Send to Log Analytics Workspace. Select a workspace (can be an existing default workspace) > Save. Go back to the app service > App Service Logs. Turn on Detailed Error Messages and Failed Request Tracing > Save. Restart the app service.
 
-Return to the Log Analytics Workspace > Logs and run a query such as `Perf`to see some log results and check that Log Analytics is working properly.
+Return to the Log Analytics Workspace > Logs and run a query such as `heartbeat`to see some log results and check that Log Analytics is working properly.
 
+![Log Analytics Heartbeat](projectimages/heartbeat_logs630.png)
 #### 5. Setup Custom Logging
 In Log Analytics Workspace go to Advanced Settings > Data > Custom Logs > Add + > Choose File. Select the seleniumlog.txt file created from the Pipeline run. (I downloaded a copy to my local machine and uploaded a copy to the Azure VM via SSH) > Next > Next. Enter the paths for the Linux machine where the file is located, such as:
 *    ` /seleniumlog.txt`
 *   ` <your path>/seleniumlog.txt`
-![Custom logging setup](projectimages/customloggingsetup.png) 
+![Custom logging setup](projectimages/settingUpCustomLogs.png) 
 
-## Selenium Log query
-![Selenium Test Log output](projectimages/SeleniumTestLogs629.png)
 
-![Selenium Run](projectimages/selennium%20run%20628.png)
+![Selenium Run](projectimages/seleniumRun630.png)
 
 Give it a name and click Done. 
 
@@ -246,16 +244,15 @@ Configure an Action Group (email) | :white_check_mark:
 
 The project also calls for creating an alert rule with an HTTP 404 condition. It also requires an action group to be created with Email notification. After the alert takes effect, visit the URL of the AppService and try to cause 404 errors by visiting non-existent pages. After the 2nd 404 error an email alert should be triggered. To set this up:
 
-![alerts](projectimages/appServicealerts.png)  
-![alerts](projectimages/Malertscreation.png)  
+![alerts](projectimages/alerts/appServicealerts.png)  
+![alerts](projectimages/alerts/Malertscreation.png)  
 ![alerts](projectimages/alert%20rules.png)   
   
 In Azure Portal go to the AppService > Alerts > New Alert Rule. Add the HTTP 404 condition with a threshold value of 1. This creates an alert once there are at least 2 404 errors. Click **Done**. Now create the action group with the notification type set to **Email/SMS message/Push/Voice** choosing the email option. Give it a name and severity level.
 
-![Email Alert](projectimages/InkedAzure%20email%20alert_LI.jpg)
-![Email Alert](projectimages/Inkedalert_email_629_LI.jpg)
-![Email Alert](projectimages/Inkedalert_deactivated_629_LI.jpg)
-![ Alert](projectimages/up3_storeRG360alerts.png)
+![Email Alert](projectimages/alerts/Inkedalert_email_629_LI.jpg)
+![Email Alert](projectimages/alerts/Inkedalert_deactivated_629_LI.jpg)
+![ Alert](projectimages/alerts/up3_storeRG360alerts.png)
 
 ## Enchancements 
 
