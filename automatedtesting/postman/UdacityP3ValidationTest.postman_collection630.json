@@ -102,43 +102,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "Delete Employee",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Successful response\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Deleted\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"deleted\");\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{app}}/api/v1/delete/{{id}}",
-					"host": [
-						"{{app}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"delete",
-						"{{id}}"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
