@@ -6,22 +6,17 @@
 	},
 	"item": [
 		{
-			"name": "Get All Employees Copy",
+			"name": "Get Employee Copy",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful response\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});",
-							"",
-							"pm.test(\"Nixon found\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"Nixon\");",
-							"});",
-							"",
-							"pm.test(\"Ramona not found\", function () {",
-							"    pm.expect(pm.response.text()).to.not.include(\"Ramona\");",
+							"pm.test(\"Successful response\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});\r",
+							"pm.test(\"Tiger found\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Tiger\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -32,14 +27,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{app}}/api/v1/employees",
+					"raw": "{{app}}/api/v1/employee/1",
 					"host": [
 						"{{app}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"employees"
+						"employee",
+						"1"
 					]
 				}
 			},
