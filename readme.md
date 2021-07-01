@@ -129,11 +129,10 @@ The following script was used:
     echo 'Running Data Validation Test'
     newman run automatedtesting/postman/DataValidation.postman_collection.json  --delay-request 12000 --reporters cli,junit --suppress-exit-code
 ```
-![Newman  Table Regression](projectimages/newmanRegressionouput630.png)
-![Newman  Graph Regression](projectimages/newmanRegressionGraph630.png)
-![Newman  Table Validation](projectimages/newmanValidationoutput630.png)
-![Newman  Graph Validation](projectimages/newmanoverallgraph630.png)
-![Newman  Graph ](projectimages/newmanvalidationgraph630.png)
+![Newman  Table Regression](projectimages/newman_regression_table.png)
+![Newman  Graph Regression](projectimages/newman_regression_graph71.png)
+![Newman   Validation](projectimages/newman_regression_success.png)
+
 
  The results of the tests will also appear in the Pipeline output like so:
 
