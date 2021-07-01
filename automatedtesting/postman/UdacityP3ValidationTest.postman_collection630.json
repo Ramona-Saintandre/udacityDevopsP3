@@ -65,14 +65,7 @@
 							"pm.test(\"Successful response\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
 							"});",
-							"",
-							"",
-							"pm.test(\"Body is correct\", function () {",
-							"    pm.response.to.have.body(\"Jenette\");",
-							"});",
-							"pm.test(\"Body is correct\", function () {",
-							"    pm.response.to.have.body(\"Tiger\");",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -139,15 +132,15 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"//pm.test(\"Successful response\", function () {\r",
-							"   // pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"//});\r",
-							"//pm.test(\"Salary 3000\", function () {\r",
-							"    //pm.expect(pm.response.text()).to.include(\"3000\");\r",
-							"//});\r",
-							"//pm.test(\"Salary not 25000\", function () {\r",
-							"    pm.expect(pm.response.text()).to.not.include(\"25000\");\r",
-							"//});"
+							"pm.test(\"Successful response\", function () {\r",
+							"pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});\r",
+							"pm.test(\"Salary 3000\", function () {\r",
+							"pm.expect(pm.response.text()).to.include(\"3000\");\r",
+							"});\r",
+							"pm.test(\"Salary not 25000\", function () {\r",
+							"pm.expect(pm.response.text()).to.not.include(\"25000\");\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -188,12 +181,10 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Successful response\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"pm.expect(pm.response.text()).to.include(\"success\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Deleted\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"deleted\");\r",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}

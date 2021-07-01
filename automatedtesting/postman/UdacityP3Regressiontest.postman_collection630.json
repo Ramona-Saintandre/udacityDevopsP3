@@ -94,9 +94,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"//pm.test(\"Successful response\", function () {\r",
-							"   // pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"//});"
+							"pm.test(\"Successful response\", function () {\r",
+							"pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -127,9 +127,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"//pm.test(\"Successful response\", function () {\r",
-							"   // pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"//});"
+							"pm.test(\"Successful response\", function () {\r",
+							"pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -169,13 +169,10 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"//pm.test(\"Successful response\", function () {",
-							"    //pm.expect(pm.response.text()).to.include(\"success\");",
-							"//});",
-							"",
-							"//pm.test(\"Deleted\", function () {",
-							"   // pm.expect(pm.response.text()).to.include(\"deleted\");",
-							"//});"
+							"pm.test(\"Successful response\", function () {",
+							"pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
+							""
 						],
 						"type": "text/javascript"
 					}
