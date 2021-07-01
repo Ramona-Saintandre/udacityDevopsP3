@@ -43,9 +43,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/Activities",
+							"raw": "https://test-appservice-udacityp3.azurewebsites.net/Activities",
+							"protocol": "https",
 							"host": [
-								"{{url}}"
+								"test-appservice-udacityp3",
+								"azurewebsites",
+								"net"
 							],
 							"path": [
 								"Activities"
@@ -88,9 +91,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/Activities/1",
+							"raw": "https://test-appservice-udacityp3.azurewebsites.net/Activities/1",
+							"protocol": "https",
 							"host": [
-								"{{url}}"
+								"test-appservice-udacityp3",
+								"azurewebsites",
+								"net"
 							],
 							"path": [
 								"Activities",
@@ -129,12 +135,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/Activities/",
+							"raw": "https://test-appservice-udacityp3.azurewebsites.netActivities/",
+							"protocol": "https",
 							"host": [
-								"{{url}}"
+								"test-appservice-udacityp3",
+								"azurewebsites",
+								"netActivities"
 							],
 							"path": [
-								"Activities",
 								""
 							]
 						}
@@ -172,9 +180,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/Activities/0",
+							"raw": "https://test-appservice-udacityp3.azurewebsites.net/Activities/0",
+							"protocol": "https",
 							"host": [
-								"{{url}}"
+								"test-appservice-udacityp3",
+								"azurewebsites",
+								"net"
 							],
 							"path": [
 								"Activities",
