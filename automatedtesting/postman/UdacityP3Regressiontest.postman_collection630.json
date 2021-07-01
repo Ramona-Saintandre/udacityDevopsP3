@@ -1,45 +1,10 @@
 {
 	"info": {
-		"_postman_id": "46c6429b-0972-421c-bc54-53529d9247e0",
-		"name": "UdacityP3Regressiontest",
+		"_postman_id": "ccc968c3-d194-4511-a46f-c34a27c38beb",
+		"name": "Juwana TestRestAPI_Regression",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "Get Employees",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/employees",
-					"protocol": "http",
-					"host": [
-						"dummy",
-						"restapiexample",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"employees"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "Create Employee",
 			"event": [
@@ -47,9 +12,11 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
+							"pm.test(\"Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
+							"var json = pm.response.json();",
+							"pm.environment.set(\"id\", json.data.id);"
 						],
 						"type": "text/javascript"
 					}
@@ -85,12 +52,15 @@
 			"response": []
 		},
 		{
-			"name": "Get Employee",
+			"name": "Get All Employees",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
+							"pm.test(\"Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
 							""
 						],
 						"type": "text/javascript"
@@ -101,9 +71,47 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{app}}/api/v1/employee/1",
+					"raw": "http://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "http",
 					"host": [
-						"{{app}}"
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful response\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/employee/1",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
 					],
 					"path": [
 						"api",
@@ -122,8 +130,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"Successful response\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -135,7 +143,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"codinggrandma2\",\r\n    \"salary\": \"45\",\r\n    \"age\": \"50\"\r\n}",
+					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"salary\": \"40\",\r\n    \"age\": \"{{age}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -143,9 +151,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{app}}/api/v1/update/{{id}}",
+					"raw": "http://dummy.restapiexample.com/api/v1/update/{{id}}",
+					"protocol": "http",
 					"host": [
-						"{{app}}"
+						"dummy",
+						"restapiexample",
+						"com"
 					],
 					"path": [
 						"api",
@@ -164,8 +175,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Successful response\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -176,15 +187,18 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{app}}/api/v1/delete/{{id}}",
+					"raw": "http://dummy.restapiexample.com/api/v1/delete/4",
+					"protocol": "http",
 					"host": [
-						"{{app}}"
+						"dummy",
+						"restapiexample",
+						"com"
 					],
 					"path": [
 						"api",
 						"v1",
 						"delete",
-						"{{id}}"
+						"4"
 					]
 				}
 			},
