@@ -205,9 +205,9 @@ stages:
           script: |
             sudo apt-get install openjdk-11-jre-headless -y
             java -version
-            wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz -O jmeter.tgz
+            wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.2.1.tgz -O jmeter.tgz
             tar xzvf jmeter.tgz
-            apache-jmeter-5.4.1/bin/jmeter --version
+            apache-jmeter-5.2.1/bin/jmeter --version
             pwd
             ls -la
       - task: Bash@3
@@ -219,8 +219,8 @@ stages:
             ls -la
             rm -rf *.csv stress-test-html-report/*
             echo "Running JMeter tests Now"
-            apache-jmeter-5.4.1/bin/jmeter -n -t automatedtesting/jmeter/stresstest.jmx \
-            -l StressTest_Results.csv -e -f -o stresstest-html-report/
+            apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/stresstest630.jmx \
+            -l StressTest_Results.csv -e -f -o stresstest630-html-report/
            
             ls -la
       - task: Bash@3
@@ -231,7 +231,7 @@ stages:
             mkdir endurancetest-html-report
             ls -la 
             rm -rf *.csv endurancetest-html-report/*
-            apache-jmeter-5.4.1/bin/jmeter -n -t automatedtesting/jmeter/endurancetest.jmx \
-            -l EnduranceTest_Results.csv -e -f -o endurancetest-html-report/
+            apache-jmeter-5.2.1/bin/jmeter -n -t automatedtesting/jmeter/endurancetest630.jmx \
+            -l EnduranceTest_Results.csv -e -f -o endurancetest630-html-report/
           
             ls -la
