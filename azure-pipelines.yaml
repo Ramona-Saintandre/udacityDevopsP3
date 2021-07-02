@@ -241,7 +241,7 @@ stages:
 
   - stage: Final
     jobs:
-    - job: Destroy Resources
+    - job: Destroy 
       displayName: Terraform Destroy
       pool:
        vmImage: 'ubuntu-latest'
