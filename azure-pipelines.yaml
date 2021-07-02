@@ -253,6 +253,6 @@ stages:
           environmentServiceName: 'up3connection620'        
           secureVarsFile: 'terraform.tfvars'
           allowTelemetryCollection: true                  
-          commandOptions: 'auto-approve'
+         
 
               
