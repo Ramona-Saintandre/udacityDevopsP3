@@ -236,3 +236,52 @@ stages:
             -l EnduranceTest_Results.csv -e -f -o endurancetest630-html-report/
           
             ls -la
+
+      #--------------------------------------Destroy Resources---------------------------
+
+- stage: "Destroy"
+     jobs:
+       - job: destroy_infrastructure
+         displayName: "Destroy infrastructure"
+         pool:
+           vmimage: "ubuntu-18.04"
+         steps:
+           - task: DownloadSecureFile@1
+             displayName: "Download terraform.tfvars file"
+             name: tfvars
+             inputs:
+               secureFile: "terraform.tfvars"
+
+           - task: Bash@3
+             displayName: "Copy terraform.tfvars file"
+            inputs:
+               targetType: "inline"
+               script: |
+                 #!/bin/bash
+                 sudo cp $(tfvars.secureFilePath) terraform/environments/test/terraform.tfvars
+
+           - task: TerraformInstaller@0
+             displayName: "Install Terraform"
+             inputs:
+               terraformVersion: '0.14.11'
+
+          - task: TerraformCLI@0
+            displayName: 'terraform init'
+            inputs:              
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+              backendServiceArm: up3connection620
+              backendAzureRmResourceGroupName: up3-storeRG360
+              backendAzureRmStorageAccountName: up3store620
+              backendAzureRmContainerName: up3blob620
+              backendAzureRmResourceGroupLocation: centralus
+              backendAzureRmKey: 'terraform.tfstate'
+              allowTelemetryCollection: true
+
+           - task: TerraformTaskV1@0
+             displayName: "Terraform destroy"
+             inputs:
+               provider: 'azurerm'
+               command: 'destroy'
+               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test/'
+               environmentServiceNameAzureRM: 'terraform-sa'
